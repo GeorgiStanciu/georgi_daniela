@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="facebook_app_id">1323184991102625</string>
+
+
+    <string name="login">Login</string>
+    <string name="login_facebook">Login with Facebook</string>
+    <string name="register_text">Don\'t have an account? Register now</string>
+    <string name="forgot_text">Did you forgot your password?</string>
+    <string name="login_user_empty">User name field is empty</string>
+    <string name="login_password_empty">Password field is empty</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="forgot">Forgot</string>
+    <string name="password_match_text">Passwords don\'t match </string>
+    <string name="password_size_text">Password must be between 6 and 20 characters</string>
+    <string name="password_validation_text">Your password must contain at least one uppercase letter, one number and one special character!</string>
+    <string name="incorrect_login">Incorrect user name or password</string>
+    <string name="email_exists">This email already exists</string>
+    <string name="empty_folder_message">Tap the button to add items</string>
+</resources>
