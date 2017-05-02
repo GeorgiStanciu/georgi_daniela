@@ -19,7 +19,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/back_arrow"
         android:visibility="gone"
-        android:tint="@color/facebook"
+        android:tint="@color/matteBlack"
         />
     <ImageView
         android:layout_width="100dp"
@@ -73,6 +73,7 @@
             android:id="@+id/confirm_edit_text"
             android:inputType="textPassword"
             android:textColor="@color/chiffon"
+            android:visibility="gone"
             />
 
         <LinearLayout
@@ -126,6 +127,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:orientation="horizontal"
+            android:id="@+id/register_forgot_buttons"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -165,9 +167,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/progress_login_screen"
         android:layout_centerInParent="true"
-        android:indeterminateTint="@color/chiffon"
-        android:indeterminateTintMode="src_atop"
         android:indeterminate="true"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 </RelativeLayout>

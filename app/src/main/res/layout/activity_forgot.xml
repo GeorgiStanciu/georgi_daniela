@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/smoke"
+    android:paddingRight="32dp"
+    android:paddingLeft="32dp"
+    android:paddingBottom="32dp"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoDisplay"
+    tools:context="com.example.georgi.shop.Activities.ForgotActivity"
+
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_arrow_left"
+        android:tint="@color/matteBlack"
+        android:layout_marginTop="10dp"
+        android:id="@+id/back_arrow"
+        />
+    <ImageView
+        android:layout_marginTop="35dp"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:src="@drawable/shop"
+        android:tint="@color/cherry"
+        android:id="@+id/icon"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@id/icon"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_text"
+            android:textColor="@color/matteBlack"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginBottom="25dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/matteBlack"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:id="@+id/user_edit_text"
+            android:inputType="textEmailAddress"
+            android:hint="@string/user_name"
+            android:textColor="@color/chiffon"
+            />
+
+        <Button
+            android:id="@+id/auth_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round_button"
+            android:text="@string/forgot"
+            android:textColor="@color/chiffon"
+            android:textSize="@dimen/activity_horizontal_margin" />
+
+    </LinearLayout>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_login_screen"
+        android:indeterminate="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        />
+</RelativeLayout>

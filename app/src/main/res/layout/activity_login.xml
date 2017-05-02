@@ -51,7 +51,6 @@
             android:imeOptions="actionNext"
             android:id="@+id/user_edit_text"
             android:inputType="textEmailAddress"
-            android:text="georgi@a.com"
             android:hint="@string/user_name"
             android:textColor="@color/chiffon"
             />
@@ -64,7 +63,6 @@
             android:imeActionLabel="Next"
             android:id="@+id/password_edit_text"
             android:inputType="textPassword"
-            android:text="1234A@"
             android:hint="@string/password"
             android:textColor="@color/chiffon"
 
@@ -79,6 +77,7 @@
             android:inputType="textPassword"
             android:hint="@string/confirm_password"
             android:textColor="@color/chiffon"
+            android:visibility="gone"
             />
 
         <Button
@@ -126,6 +125,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:orientation="horizontal"
+            android:id="@+id/register_forgot_buttons"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -163,8 +163,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progress_login_screen"
-        android:indeterminateTint="@color/chiffon"
-        android:indeterminateTintMode="src_atop"
         android:indeterminate="true"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

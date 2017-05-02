@@ -5,15 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/smoke"
-    android:paddingRight="32dp"
-    android:paddingLeft="32dp"
-    android:paddingBottom="32dp"
-    android:paddingTop="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoDisplay"
     tools:context="com.example.georgi.shop.Activities.MainActivity"
-
+    android:padding="@dimen/activity_horizontal_margin"
+    android:fitsSystemWindows="true"
     >
 
+    <GridView
+        android:background="@color/smoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grid_view"
+        android:clipToPadding="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="8dp"
+        android:scrollbars="none"
+        android:fastScrollEnabled="false"
+        >
+
+
+    </GridView>
 
 </RelativeLayout>

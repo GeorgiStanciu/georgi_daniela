@@ -7,19 +7,31 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/shop"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/NoActionBar">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity android:name=".Activities.MainActivity">
+
+        </activity>
+        <activity android:name=".Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Activities.LoginActivity"></activity>
+            </activity>
+        <activity
+            android:name=".Activities.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".Activities.ForgotActivity"></activity>
     </application>
 
 </manifest>
