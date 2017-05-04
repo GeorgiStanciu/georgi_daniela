@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,12 +53,21 @@ public class ProductAdapter extends BaseAdapter {
         TextView oldPrice = (TextView) cardView.findViewById(R.id.product_old_price);
         oldPrice.setPaintFlags(oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         ImageView image = (ImageView) cardView.findViewById(R.id.product_image);
-
         Product product = products.get(position);
         name.setText(product.getName());
-        price.setText(product.getPrice() + "");
-        oldPrice.setText(product.getPrice() + "");
+        price.setText(String.format("%.2f", product.getPrice()) + " Lei");
 
+        if(product.getImages() != null && product.getImages().size() > 0){
+            Picasso.with(context)
+                    .load(product.getImages().get(0))
+                    .into(image);
+        }
+        if(product.getDiscount() != 0){
+            oldPrice.setVisibility(View.VISIBLE);
+            oldPrice.setText(String.format("%.2f", product.getPrice()) + " Lei");
+            float newPrice = product.getPrice() - product .getPrice() * product.getDiscount() / 100;
+            price.setText(String.format("%.2f", newPrice) + " Lei");
+        }
 
         return cardView;
     }
