@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/smoke"
+    android:fitsSystemWindows="true"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/smoke">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/product_images">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/shop"
+                android:id="@+id/product_main_image"/>
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></GridView>
+        </LinearLayout>
+        <View
+            android:layout_below="@id/product_images"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/mediumGray"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_heart"
+            android:layout_below="@id/product_images"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/add_product_to_favorite"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_images"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Old price"
+            android:layout_marginTop="8dp"
+            android:id="@+id/product_old_price"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_old_price"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Price"
+            android:layout_marginTop="8dp"
+            android:textSize="20dp"
+            android:textColor="@color/cherry"
+            android:id="@+id/product_current_price"
+            />
+        <View
+            android:layout_below="@id/product_current_price"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/mediumGray"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_current_price"
+            android:id="@+id/no_product_message"
+            android:textColor="@color/chiffon"
+            android:text="Stop epuizat - Adauga produsul in favorite si te notificam cand revine in stic"
+            android:background="@color/cherry"
+            android:layout_marginTop="5dp"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/no_product_message"
+            android:id="@+id/product_name"
+            android:textColor="@color/matteBlack"
+            android:text="Product name"
+            android:textSize="20sp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_name"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:isIndicator="true"
+            android:id="@+id/product_rating"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fii primul care adauga un review"
+            android:layout_below="@id/product_rating"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="2dp"
+            android:id="@+id/product_review_number"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In stoc"
+            android:layout_below="@id/product_review_number"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/product_stock_state"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vandut de: SHOP"
+            android:layout_below="@id/product_stock_state"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/product_seller"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Garantie:"
+            android:layout_below="@id/product_seller"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/product_guarantee"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/product_guarantee"
+            android:textSize="20sp"
+            android:text="Descrierea produsului"
+            android:textColor="@color/matteBlack"
+            android:id="@+id/product_description"/>
+    </RelativeLayout>
+</ScrollView>

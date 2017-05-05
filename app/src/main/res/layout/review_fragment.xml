@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:background="@color/chiffon"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.4"
+            android:textSize="20sp"
+            android:id="@+id/product_qualifying"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="din 5 stele"
+            android:layout_below="@id/product_qualifying"
+            android:textSize="10sp"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/product_rating_review"
+            android:stepSize="0.1"
+            android:numStars="5"
+            android:scaleX=".7"
+            android:scaleY=".7"
+            android:isIndicator="true"
+            android:progressBackgroundTint="@color/matteBlack"
+            android:progressTint="@color/berry"
+            android:secondaryProgressTint="@color/berry"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adauga"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:textColor="@color/cherry"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_rating_review"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

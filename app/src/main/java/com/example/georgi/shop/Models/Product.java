@@ -1,12 +1,13 @@
 package com.example.georgi.shop.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Georgi on 02-May-17.
  */
 
-public class Product {
+public class Product implements Serializable{
 
     private String id;
     private String name;

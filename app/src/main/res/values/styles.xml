@@ -11,11 +11,18 @@
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/berry</item>
         <item name="colorAccent">@color/matteBlack</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorControlNormal">@color/chiffon</item>
     </style>
 
-    <style name="NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorControlNormal">@color/chiffon</item>
+        </style>
 
-    <style name="NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:colorControlNormal">@color/chiffon</item>
+        </style>
 
     <style name="NavigationMenuTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="listPreferredItemHeightSmall">18dp</item>
