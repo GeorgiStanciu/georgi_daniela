@@ -6,35 +6,39 @@
     android:background="@color/smoke"
     android:fitsSystemWindows="true"
     >
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/smoke">
+        android:background="@color/chiffon">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/product_images">
+            android:id="@+id/product_images"
+            android:background="@color/white">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/shop"
                 android:id="@+id/product_main_image"/>
-            <GridView
+
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></GridView>
+                android:layout_height="wrap_content"
+                android:id="@+id/product_image_list"
+                android:scrollbars="none"
+                android:fitsSystemWindows="true"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                />
         </LinearLayout>
-        <View
-            android:layout_below="@id/product_images"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/mediumGray"
-            />
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/ic_heart"
+            android:src="@mipmap/ic_heart_outline"
+            android:tint="@color/cherry"
             android:layout_below="@id/product_images"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:id="@+id/add_product_to_favorite"
@@ -73,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/product_current_price"
-            android:id="@+id/no_product_message"
+            android:id="@+id/out_of_stock_message"
             android:textColor="@color/chiffon"
             android:text="Stop epuizat - Adauga produsul in favorite si te notificam cand revine in stic"
             android:background="@color/cherry"
@@ -81,12 +85,13 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:visibility="gone"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_below="@id/no_product_message"
+            android:layout_below="@id/out_of_stock_message"
             android:id="@+id/product_name"
             android:textColor="@color/matteBlack"
             android:text="Product name"
@@ -102,6 +107,9 @@
             android:numStars="5"
             android:stepSize="0.1"
             android:isIndicator="true"
+            android:progressBackgroundTint="@color/yellow"
+            android:progressTint="@color/yellow"
+            android:secondaryProgressTint="@color/yellow"
             android:id="@+id/product_rating"/>
 
         <TextView

@@ -1,6 +1,7 @@
 package com.example.georgi.shop.Activities;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,7 +20,14 @@ import android.widget.EditText;
 
 import com.example.georgi.shop.Adapters.ProductPagerAdapter;
 import com.example.georgi.shop.Helpers.NavigationListener;
+import com.example.georgi.shop.Models.Product;
+import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.R;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class ViewProductActivity extends AppCompatActivity {
 
@@ -28,6 +36,8 @@ public class ViewProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_product);
 
+        Intent intent = getIntent();
+        Product product = (Product) intent.getSerializableExtra("product");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("SHOP");
         toolbar.setTitleTextColor(getResources().getColor(R.color.chiffon));
@@ -45,7 +55,7 @@ public class ViewProductActivity extends AppCompatActivity {
 
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        ProductPagerAdapter adapter = new ProductPagerAdapter(getSupportFragmentManager());
+        ProductPagerAdapter adapter = new ProductPagerAdapter(getSupportFragmentManager(), product);
         viewPager.setAdapter(adapter);
     }
 

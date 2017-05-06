@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,9 @@ import android.widget.TextView;
 
 import com.example.georgi.shop.Activities.ViewProductActivity;
 import com.example.georgi.shop.Models.Product;
+import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.R;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,12 +51,12 @@ public class ProductAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View cardView = inflater.inflate(R.layout.item_card, null);
+        final View cardView = inflater.inflate(R.layout.item_card, null);
 
         TextView name = (TextView) cardView.findViewById(R.id.product_name);
-        TextView price = (TextView) cardView.findViewById(R.id.product_price);
+        final TextView price = (TextView) cardView.findViewById(R.id.product_price);
         TextView oldPrice = (TextView) cardView.findViewById(R.id.product_old_price);
         oldPrice.setPaintFlags(oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         ImageView image = (ImageView) cardView.findViewById(R.id.product_image);
@@ -76,7 +80,7 @@ public class ProductAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ViewProductActivity.class);
-                intent.putExtra("product", product);
+                intent.putExtra("product",product);
                 ((Activity) context).startActivity(intent);
             }
         });

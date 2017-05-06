@@ -1,10 +1,12 @@
 package com.example.georgi.shop.Models;
 
+import java.io.Serializable;
+
 /**
  * Created by Georgi on 02-May-17.
  */
 
-public class UserModel {
+public class UserModel implements Serializable {
     private String name;
     private String email;
     private String id;

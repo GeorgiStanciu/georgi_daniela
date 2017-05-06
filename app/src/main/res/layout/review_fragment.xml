@@ -3,58 +3,287 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/no_reviews_message"
         android:background="@color/chiffon"
+        android:visibility="gone"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.4"
-            android:textSize="20sp"
-            android:id="@+id/product_qualifying"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="25sp"
+            android:text="Fii primul care \nscrie un review!"
+            android:id="@+id/no_reviews_text"/>
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="din 5 stele"
+            android:text="ADAUGA"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/no_reviews_text"
+            android:layout_marginTop="20dp"
+            android:id="@+id/add_review_button"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chiffon"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/product_qualifying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:text="4.2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/product_qualifying"
-            android:textSize="10sp"/>
+            android:text="din 5 stele"
+            android:textSize="10sp" />
 
         <RatingBar
+            android:id="@+id/product_rating_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/product_rating_review"
-            android:stepSize="0.1"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:isIndicator="true"
             android:numStars="5"
+            android:progressBackgroundTint="@color/matteBlack"
+            android:progressTint="@color/yellow"
             android:scaleX=".7"
             android:scaleY=".7"
-            android:isIndicator="true"
-            android:progressBackgroundTint="@color/matteBlack"
-            android:progressTint="@color/berry"
-            android:secondaryProgressTint="@color/berry"
-            />
+            android:secondaryProgressTint="@color/yellow"
+            android:stepSize="0.1" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adauga"
-            android:layout_centerInParent="true"
             android:layout_alignParentRight="true"
-            android:textSize="16sp"
-            android:textColor="@color/cherry"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Adauga"
             android:textAllCaps="true"
-            android:textStyle="bold"
-            />
-        <SeekBar
+            android:textColor="@color/cherry"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/five_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/product_rating_review"
-            />
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5 stele" />
+
+            <ProgressBar
+                android:id="@+id/five_stars_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="16"
+                android:progress="10"
+                android:progressTint="@color/yellow"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/five_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right"
+                android:text="10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/four_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/five_bar_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4 stele" />
+
+            <ProgressBar
+                android:id="@+id/four_stars_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="16"
+                android:progress="3"
+                android:progressTint="@color/yellow"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/four_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right"
+                android:text="3" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/three_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/four_bar_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3 stele" />
+
+            <ProgressBar
+                android:id="@+id/three_stars_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="16"
+                android:progress="0"
+                android:progressTint="@color/yellow"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/three_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right"
+                android:text="0" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/two_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/three_bar_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 stele" />
+
+            <ProgressBar
+                android:id="@+id/two_stars_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="16"
+                android:progress="2"
+                android:progressTint="@color/yellow"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/two_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right"
+                android:text="2" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/one_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/two_bar_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1 stele" />
+
+            <ProgressBar
+                android:id="@+id/one_stars_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="16"
+                android:progress="1"
+                android:progressTint="@color/yellow"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/one_stars_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right"
+                android:text="1" />
+        </LinearLayout>
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/one_bar_layout"
+            android:fitsSystemWindows="true"
+            android:scrollbars="none"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="8dp"
+            ></GridView>
     </RelativeLayout>
 
 </LinearLayout>

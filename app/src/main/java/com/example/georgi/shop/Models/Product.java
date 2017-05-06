@@ -1,5 +1,8 @@
 package com.example.georgi.shop.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -17,8 +20,10 @@ public class Product implements Serializable{
     private String category;
     private int discount;
     private String seller;
-    private int surety;
+    private int guarantee;
     private int quantity;
+    private ArrayList<ReviewModel> reviews;
+    private float rating;
 
 
 
@@ -29,8 +34,8 @@ public class Product implements Serializable{
         this.price = price;
     }
 
-
-    public Product(String id, String name, String description, ArrayList<String> images, String category, float price, int discount, String seller, int surety, int quantity) {
+    public Product(String id, String name, String description, ArrayList<String> images, String category,
+                   float price, int discount, String seller, int guarantee, int quantity, ArrayList<ReviewModel> reviews) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -39,8 +44,10 @@ public class Product implements Serializable{
         this.category = category;
         this.discount = discount;
         this.seller = seller;
-        this.surety = surety;
+        this.guarantee = guarantee;
         this.quantity = quantity;
+        this.reviews = reviews;
+        this.rating = 0.00f;
     }
 
     public String getId() {
@@ -107,12 +114,12 @@ public class Product implements Serializable{
         this.seller = seller;
     }
 
-    public int getSurety() {
-        return surety;
+    public int getGuarantee() {
+        return guarantee;
     }
 
-    public void setSurety(int surety) {
-        this.surety = surety;
+    public void setGuarantee(int guarantee) {
+        this.guarantee = guarantee;
     }
 
     public int getQuantity() {
@@ -122,4 +129,30 @@ public class Product implements Serializable{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public ArrayList<ReviewModel> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(ArrayList<ReviewModel> reviews) {
+        this.reviews = reviews;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public void addReview(ReviewModel review){
+        if(reviews == null) {
+            reviews = new ArrayList<>();
+        }
+        rating = ((rating * (reviews.size() - 2)) + review.getQualifying()) / (reviews.size() - 1);
+        reviews.add(review);
+
+    }
+
 }

@@ -10,7 +10,7 @@
     android:fitsSystemWindows="true"
     android:theme="@android:style/Theme.NoDisplay"
     tools:openDrawer="start">
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/smoke"
@@ -34,8 +34,19 @@
           </android.support.design.widget.TabLayout>
 
       </android.support.v4.view.ViewPager>
-    </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/chiffon"
+            android:background="@color/cherry"
+            android:layout_gravity="end|bottom"
+            android:src="@mipmap/ic_shopping"
+            app:backgroundTint="@color/cherry"
+            android:padding="@dimen/design_navigation_padding_top_default"
+            android:layout_margin="@dimen/fab_margin"/>
+    </android.support.design.widget.CoordinatorLayout>
 
     <include
-        layout="@layout/navigation_layout"/>
+        layout="@layout/navigation_layout"
+        android:visibility="invisible"/>
 </android.support.v4.widget.DrawerLayout>
