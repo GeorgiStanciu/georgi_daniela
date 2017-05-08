@@ -6,7 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 
+import com.example.georgi.shop.Activities.DeliverInfoActivity;
+import com.example.georgi.shop.Activities.FavoriteProductsActivity;
+import com.example.georgi.shop.Activities.FindProductActivity;
 import com.example.georgi.shop.Activities.MainActivity;
+import com.example.georgi.shop.Activities.NotificationActivity;
+import com.example.georgi.shop.Activities.ProfileActivity;
+import com.example.georgi.shop.Activities.ShopInfoActivity;
+import com.example.georgi.shop.Activities.ShoppingBasketActivity;
 
 /**
  * Created by Georgi on 04-May-17.
@@ -25,7 +32,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             case "Acasa":
                 goAcasa();
                 return true;
-            case "Produce":
+            case "Produse":
                 goProduce();
                 return true;
             case "Favorite":
@@ -57,31 +64,31 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
     }
     private void goProduce(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, FindProductActivity.class);
         activity.startActivity(intent);
     }
     private void goFavorite(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, FavoriteProductsActivity.class);
         activity.startActivity(intent);
     }
     private void goCos(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, ShoppingBasketActivity.class);
         activity.startActivity(intent);
     }
     private void goCont(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, ProfileActivity.class);
         activity.startActivity(intent);
     }
     private void goNotificari(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, NotificationActivity.class);
         activity.startActivity(intent);
     }
     private void goInformatiiLivrare(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, DeliverInfoActivity.class);
         activity.startActivity(intent);
     }
     private void goInformatiiShop(){
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, ShopInfoActivity.class);
         activity.startActivity(intent);
     }
 

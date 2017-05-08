@@ -30,7 +30,6 @@
                 android:id="@+id/product_image_list"
                 android:scrollbars="none"
                 android:fitsSystemWindows="true"
-                android:layout_gravity="center"
                 android:background="@color/white"
                 />
         </LinearLayout>
@@ -42,6 +41,7 @@
             android:layout_below="@id/product_images"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:id="@+id/add_product_to_favorite"
+            android:tag="heart_outline"
             />
 
         <TextView

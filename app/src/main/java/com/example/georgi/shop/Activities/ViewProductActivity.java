@@ -1,37 +1,30 @@
 package com.example.georgi.shop.Activities;
 
-import android.app.SearchManager;
 import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.georgi.shop.Adapters.ProductPagerAdapter;
-import com.example.georgi.shop.Helpers.NavigationListener;
 import com.example.georgi.shop.Models.Product;
-import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
-public class ViewProductActivity extends AppCompatActivity {
-
+public class ViewProductActivity extends BaseActivity {
     @Override
+    protected void addLayout() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.activity_view_product,null);
+
+        Intent intent = getIntent();
+        Product product = (Product) intent.getSerializableExtra("product");
+
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+        ProductPagerAdapter adapter = new ProductPagerAdapter(getSupportFragmentManager(), product);
+        viewPager.setAdapter(adapter);
+        contentLayout.addView(view);
+    }
+
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_product);
@@ -102,5 +95,5 @@ public class ViewProductActivity extends AppCompatActivity {
 
 
         return true;
-    }
+    }*/
 }

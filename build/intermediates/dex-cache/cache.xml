@@ -3,21 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Georgi\Documents\shop\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Georgi\Documents\Shop\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="C:\Users\Georgi\Documents\shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ad249979843bf47bec9ac9851fd12a26bfdae487\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Georgi\Documents\shop\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1cb5236b875f457555033dea27e1cec97f23a45f">
-        <dex dex="C:\Users\Georgi\Documents\shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b349fa9bda7bad004cff48906405ccba2499077c\classes.dex" />
+        sha1="a8612497d8fba70536cdc0cef8a7a8ee065ac774">
+        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_42ef66ce3ac8bc77a0d4b0a117d7af274d6f1a92\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -36,6 +27,15 @@
         revision="25.0.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
         <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_dc089cea4f2e4164b5c86351a5f4e9baa5701a82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Georgi\Documents\Shop\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_18424414944a69ac642bb460415d2858f8520c17\classes.dex" />
     </item>
 
 </items>

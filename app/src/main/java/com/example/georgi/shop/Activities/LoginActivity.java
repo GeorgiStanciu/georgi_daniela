@@ -125,38 +125,21 @@ public class LoginActivity extends AppCompatActivity implements FacebookCallback
         facebookCallbackManager.onActivityResult(requestCode,resultCode, data);
     }
 
-    private void startMainScreen(){
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
-        String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
-        if (!userId.equals("")) {
-            sharedPreferences.edit()
-                    .putBoolean("isSearching",false)
-                    .commit();
-            sharedPreferences.edit()
-                    .putString(getString(R.string.item_move_preference), "")
-                    .commit();
+    @Subscribe
+    public void onUserLogin(OnUserLogin event){
+        progressBar.setVisibility(View.INVISIBLE);
+        if(event.getLoginStatus()) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
 
             startActivity(intent);
             finish();
-
-        }
-    }
-
-
-    @Subscribe
-    public void onUserLogin(OnUserLogin event){
-        progressBar.setVisibility(View.INVISIBLE);
-        if(event.getLoginStatus()) {
-            startMainScreen();
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        startMainScreen();
         GlobalBus.getBus().register(this);
     }
 

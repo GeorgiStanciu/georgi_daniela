@@ -18,11 +18,11 @@
 
     <style name="NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:colorControlNormal">@color/chiffon</item>
-        </style>
+    </style>
 
-    <style name="NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+    <style name="NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorControlNormal">@color/chiffon</item>
-        </style>
+    </style>
 
     <style name="NavigationMenuTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="listPreferredItemHeightSmall">18dp</item>

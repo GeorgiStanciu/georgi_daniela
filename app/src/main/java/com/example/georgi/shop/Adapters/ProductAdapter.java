@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +13,7 @@ import android.widget.TextView;
 
 import com.example.georgi.shop.Activities.ViewProductActivity;
 import com.example.georgi.shop.Models.Product;
-import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.R;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -37,7 +33,9 @@ public class ProductAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return products.size();
+        if(products != null)
+           return products.size();
+        return 0;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.example.georgi.shop.Models;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,6 +18,15 @@ public class ReviewModel implements Serializable{
 
 
     public ReviewModel(String id, String title, String review, UserModel user, Date date, int qualifying) {
+        this.id = id;
+        this.title = title;
+        this.review = review;
+        this.user = user;
+        this.date = date;
+        this.qualifying = qualifying;
+    }
+
+    public ReviewModel(String title, String review, UserModel user, Date date, int qualifying) {
         this.id = id;
         this.title = title;
         this.review = review;

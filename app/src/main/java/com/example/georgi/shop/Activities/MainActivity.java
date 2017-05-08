@@ -1,24 +1,10 @@
 package com.example.georgi.shop.Activities;
 
-import android.app.SearchManager;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.GridView;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
-import com.example.georgi.shop.Helpers.NavigationListener;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.Models.UserModel;
@@ -28,11 +14,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     private  ArrayList<Product> products;
-    @Override
+ /*   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -56,11 +42,24 @@ public class MainActivity extends AppCompatActivity {
 
         ProductAdapter adapter = new ProductAdapter(this, products);
         gridView.setAdapter(adapter);
+    }*/
+
+    @Override
+    protected void addLayout() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.activity_main,null);
+        GridView gridView = (GridView) view.findViewById(R.id.grid_view);
+
+        populateProducts();
+        ProductAdapter adapter = new ProductAdapter(this, products);
+        gridView.setAdapter(adapter);
+
+        contentLayout.addView(view);
+
     }
 
 
-
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
@@ -102,7 +101,9 @@ public class MainActivity extends AppCompatActivity {
         basketIcon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
 
         return true;
-    }
+    }*/
+
+
     private void populateProducts(){
         UserModel user = new UserModel("email", "1", "Georgi");
         ArrayList<ReviewModel> reviews = new ArrayList<>();
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         images.add("https://s5emagst.akamaized.net/products/4714/4713031/images/res_6a422db87a46b91deb827ba08e07701d_450x450_12vm.jpg");
 
         products.add(new Product("2", "Laptop ASUS X540SA-XX311", " Procesor Intel® Celeron® N3060 1.60GHz, Braswell, 15.6\", 4GB, 500GB, DVD-RW, Intel® HD Graphics 400, Free DOS, Chocolate Black",
-                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 1666.0f, 36, "Biasicom", 24, 4, reviews));
+                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 1666.0f, 36, "Biasicom", 24, 4, null));
 
 
         images = new ArrayList<>();

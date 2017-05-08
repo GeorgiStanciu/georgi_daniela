@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
+import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.R;
 
 /**
@@ -39,6 +41,9 @@ public class SimilarProductsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.similar_products_fragment, container, false);
+        GridView gridView = (GridView) view.findViewById(R.id.grid_view_similar_products);
+        ProductAdapter adapter = new ProductAdapter(getContext(), null);
+        gridView.setAdapter(adapter);
         return view;
     }
 }

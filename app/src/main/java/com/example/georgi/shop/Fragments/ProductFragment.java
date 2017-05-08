@@ -1,14 +1,13 @@
 package com.example.georgi.shop.Fragments;
 
 import android.graphics.Paint;
-import android.support.v4.app.Fragment;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -94,7 +93,7 @@ public class ProductFragment extends Fragment {
         productName.setText(product.getName());
         description.setText(product.getDescription());
         productRating.setRating(product.getRating());
-        if(product.getRating() == 0){
+        if(product.getRating() == 0.0f || product.getReviews() == null){
             reviewNumber.setText("Fii primul care adauga un review.");
         }
         else{
@@ -126,6 +125,19 @@ public class ProductFragment extends Fragment {
         addToFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(addToFavorite.getTag() != null && addToFavorite.getTag().toString().equals("heart_outline")){
+                    addToFavorite.setImageDrawable(getResources().getDrawable(R.mipmap.ic_heart));
+                    addToFavorite.setTag("heart");
+
+                }
+                else{
+                    addToFavorite.setImageDrawable(getResources().getDrawable(R.mipmap.ic_heart_outline));
+                    addToFavorite.setTag("heart_outline");
+
+                }
+                  addToFavorite.setColorFilter(getResources().getColor(R.color.cherry), PorterDuff.Mode.SRC_IN);
+
             }
         });
         return view;

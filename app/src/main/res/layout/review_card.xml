@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="@color/chiffon">
+    android:background="@color/white">
 
     <RatingBar
-        android:id="@+id/review_rating"
+        android:id="@+id/review_rating_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="5"
-        android:progressBackgroundTint="@color/matteBlack"
+        android:progressBackgroundTint="@color/yellow"
         android:progressTint="@color/yellow"
         android:scaleX=".5"
         android:scaleY=".5"
@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/mediumGray"
-        android:text="06.05.2017 de Georgi"/>
+        android:text="06.05.2017 de Georgi"
+        android:id="@+id/review_date_and_client"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -39,5 +40,6 @@
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
         android:textSize="16sp"
-        android:text="Review"/>
+        android:text="Review"
+        android:id="@+id/review_description"/>
 </LinearLayout>
