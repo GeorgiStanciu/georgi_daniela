@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/smoke"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoDisplay"
+    tools:context="com.example.georgi.shop.Activities.PayMethodActivity">
+
+    <include
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="Delalii factura"
+                android:textColor="@color/matteBlack"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/chiffon"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="georgi.a@.com"
+                    android:id="@+id/bill_user_email"/>
+
+                <EditText
+                    android:id="@+id/bill_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Nume" />
+
+                <EditText
+                    android:id="@+id/bill_user_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Adresa" />
+
+                <EditText
+                    android:id="@+id/bill_user_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Telefon"
+                    android:inputType="phone"/>
+
+                <EditText
+                    android:id="@+id/bill_user_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Numarul cardului"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="Alege metoda de plata"
+                android:textColor="@color/matteBlack"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/chiffon"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/bill_payment_method">
+
+                    <RadioButton
+                        android:id="@+id/online_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/cherry"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:text="Online cu card bancar"
+                        android:textSize="18sp"
+                        android:textColor="@color/matteBlack"/>
+
+                    <RadioButton
+                        android:id="@+id/cash_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/cherry"
+                        android:checked="true"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:text="Numerar sau rambus"
+                        android:textSize="18sp"
+                        android:textColor="@color/matteBlack"/>
+
+                    <RadioButton
+                        android:id="@+id/order_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/cherry"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:text="Ordin de plata"
+                        android:textSize="18sp"
+                        android:textColor="@color/matteBlack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/chiffon"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:id="@+id/sumar_comanda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sumar comanda"
+                    android:textColor="@color/cherry"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sumar_comanda"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="Total camanda"
+                    android:textColor="@color/matteBlack"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/bill_total_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/sumar_comanda"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="100 lei"
+                    android:textColor="@color/berry"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/send_order_butten"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/bill_total_payment"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/round_button"
+                    android:text="Trimite comanda"
+                    android:textColor="@color/chiffon"
+                    android:textSize="@dimen/activity_horizontal_margin" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

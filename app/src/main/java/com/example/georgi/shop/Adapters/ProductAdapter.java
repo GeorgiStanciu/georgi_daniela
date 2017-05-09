@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.georgi.shop.Activities.ViewProductActivity;
@@ -61,7 +62,8 @@ public class ProductAdapter extends BaseAdapter {
         final Product product = products.get(position);
         name.setText(product.getName());
         price.setText(String.format("%.2f", product.getPrice()) + " Lei");
-
+        RelativeLayout discountLayout = (RelativeLayout) cardView.findViewById(R.id.discount_product_ribbon);
+        TextView discountText = (TextView) cardView.findViewById(R.id.discount_product_text);
         if(product.getImages() != null && product.getImages().size() > 0){
             Picasso.with(context)
                     .load(product.getImages().get(0))
@@ -72,6 +74,12 @@ public class ProductAdapter extends BaseAdapter {
             oldPrice.setText(String.format("%.2f", product.getPrice()) + " Lei");
             float newPrice = product.getPrice() - product .getPrice() * product.getDiscount() / 100;
             price.setText(String.format("%.2f", newPrice) + " Lei");
+            discountLayout.setVisibility(View.VISIBLE);
+            discountText.setText(product.getDiscount() + "\n%");
+
+        }
+        else{
+            discountLayout.setVisibility(View.GONE);
         }
 
         cardView.setOnClickListener(new View.OnClickListener() {

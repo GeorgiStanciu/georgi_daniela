@@ -3,9 +3,8 @@ package com.example.georgi.shop.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v4.content.IntentCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +22,7 @@ import com.squareup.otto.Subscribe;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
 
 
     private EditText user;
@@ -35,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private LoginFirebase firebase;
     private ProgressBar progressBar;
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -86,8 +85,60 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-    }
+    }*/
 
+
+    @Override
+    protected void addLayout() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.activity_login,null);
+        user = (EditText) view.findViewById(R.id.user_edit_text);
+        password = (EditText) view.findViewById(R.id.password_edit_text);
+        registerButton = (Button) view.findViewById(R.id.auth_button);
+        facebookLogin = (LinearLayout) view.findViewById(R.id.facebook_login);
+        registerForgot = (LinearLayout) view.findViewById(R.id.register_forgot_buttons);
+        confirm = (EditText) view.findViewById(R.id.confirm_edit_text);
+        ImageView backArrow = (ImageView) view.findViewById(R.id.back_arrow);
+        backArrow.setVisibility(View.VISIBLE);
+        confirm.setVisibility(View.VISIBLE);
+        registerForgot.setVisibility(View.INVISIBLE);
+        registerButton.setText(R.string.register);
+        facebookLogin.setVisibility(View.GONE);
+        firebase = new LoginFirebase(this);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_login_screen);
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userName = user.getText().toString();
+                String passwordText = password.getText().toString();
+                String confirmText = confirm.getText().toString();
+                if (userName == null || userName.equals("")) {
+                    Toast.makeText(RegisterActivity.this, R.string.login_user_empty, Toast.LENGTH_SHORT).show();
+
+                } else if (passwordText == null || passwordText.equals("")) {
+                    Toast.makeText(RegisterActivity.this, R.string.login_password_empty, Toast.LENGTH_SHORT).show();
+
+                }
+                else if(confirmText == null || confirmText.equals("") || !confirmText.equals(passwordText)){
+                    Toast.makeText(RegisterActivity.this, R.string.password_match_text,Toast.LENGTH_SHORT).show();;
+
+                }
+                else if(validatePassword(passwordText)) {
+                    firebase.register(userName, passwordText);
+                    progressBar.setProgress(View.VISIBLE);
+                }
+            }
+        });
+
+        contentLayout.addView(view);
+    }
 
     private void startMainScreen(){
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
@@ -135,5 +186,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onStop();
         GlobalBus.getBus().unregister(this);
     }
+
 
 }

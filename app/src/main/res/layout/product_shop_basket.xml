@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="5dp">
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@drawable/shop"
+        android:id="@+id/shop_product_image"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shop_discount_ribbon">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ribbon"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:tint="@color/berry"
+            />
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="20 \n%"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="@color/chiffon"
+            android:id="@+id/shop_discount_text"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/shop_product_image"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:id="@+id/shop_product_name"
+        android:text="Laptop asus x550vx-xx016d cu procesor intel core i7-00HQ"
+
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_dots_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:id="@+id/shop_menu"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/smoke"
+        android:layout_below="@id/shop_product_image"
+        />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@id/shop_product_image"
+        android:entries="@array/productNumber"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:id="@+id/shop_product_spinner"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/shop_product_image"
+        android:text="3399.99 lei"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:textSize="10sp"
+        android:paddingTop="5dp"
+        android:textColor="@color/matteBlack"
+        android:id="@+id/shop_product_old_price"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shop_product_old_price"
+        android:layout_alignParentRight="true"
+        android:text="2749.99"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="5dp"
+        android:textColor="@color/matteBlack"
+        android:textSize="20sp"
+        android:id="@+id/shop_product_price"/>
+</RelativeLayout>

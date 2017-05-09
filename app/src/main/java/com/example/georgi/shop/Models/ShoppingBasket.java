@@ -9,23 +9,23 @@ import java.util.ArrayList;
 
 public class ShoppingBasket implements Serializable{
 
-    private int id;
+    private String id;
     private UserModel user;
     private ArrayList<Product> products;
     private ArrayList<Integer> productsNumber;
 
-    public ShoppingBasket(int id, UserModel user, ArrayList<Product> products, ArrayList<Integer> productsNumber) {
+    public ShoppingBasket(String id, UserModel user, ArrayList<Product> products, ArrayList<Integer> productsNumber) {
         this.id = id;
         this.user = user;
         this.products = products;
         this.productsNumber = productsNumber;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,5 +51,14 @@ public class ShoppingBasket implements Serializable{
 
     public void setProductsNumber(ArrayList<Integer> productsNumber) {
         this.productsNumber = productsNumber;
+    }
+
+    public float calcSum(){
+        float sum = 0.0f;
+        for(int i = 0; i < products.size(); i++){
+            float newSum = products.get(i).getPrice() - products.get(i).getPrice() * products.get(i).getDiscount() / 100;
+            sum += newSum * productsNumber.get(i);
+        }
+        return sum;
     }
 }

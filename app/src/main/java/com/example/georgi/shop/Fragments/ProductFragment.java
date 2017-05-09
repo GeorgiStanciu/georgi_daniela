@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.georgi.shop.Adapters.ProductImageAdapter;
@@ -72,6 +73,8 @@ public class ProductFragment extends Fragment {
         TextView seller = (TextView) view.findViewById(R.id.product_seller);
         TextView guarantee = (TextView) view.findViewById(R.id.product_guarantee);
         TextView description = (TextView) view.findViewById(R.id.product_description);
+        RelativeLayout discountLayout  = (RelativeLayout) view.findViewById(R.id.discount_ribbon_view_product);
+        TextView discountText = (TextView) view.findViewById(R.id.discount_text_view_product);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         picturesView.setLayoutManager(layoutManager);
@@ -81,10 +84,14 @@ public class ProductFragment extends Fragment {
 
         oldPrice.setPaintFlags(oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         if(product.getDiscount() == 0) {
+            discountLayout.setVisibility(View.GONE);
             oldPrice.setVisibility(View.INVISIBLE);
             price.setText(String.format("%.2f", product.getPrice()) + " Lei");
         }
         else{
+            discountLayout.setVisibility(View.VISIBLE);
+            discountLayout.bringToFront();
+            discountText.setText(product.getDiscount() + "\n %");
             float newPrice = product.getPrice() - product .getPrice() * product.getDiscount() / 100;
             oldPrice.setText(String.format("%.2f", product.getPrice()) + " Lei");
             price.setText(String.format("%.2f", newPrice) + " Lei");

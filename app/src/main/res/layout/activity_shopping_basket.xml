@@ -59,20 +59,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/shopping_basket_layout">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/shop_product_list"
-            ></ListView>
+            android:dividerHeight="10dp"
+            android:divider="@android:color/transparent"
+            android:layout_weight="8"
+           />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@color/chiffon"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:background="@color/white"
+            android:padding="@dimen/activity_horizontal_margin"
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +91,7 @@
                 android:layout_below="@id/sumar_comanda"
                 android:text="Total camanda"
                 android:textColor="@color/matteBlack"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -97,7 +101,8 @@
                 android:text="100 lei"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/berry"
-                android:id="@+id/total_sum"/>
+                android:id="@+id/total_sum"
+                android:textSize="20sp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

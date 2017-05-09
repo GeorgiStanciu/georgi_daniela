@@ -1,11 +1,8 @@
 package com.example.georgi.shop.Activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v4.content.IntentCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +25,7 @@ import com.squareup.otto.Subscribe;
 
 import java.util.Arrays;
 
-public class LoginActivity extends AppCompatActivity implements FacebookCallback{
+public class LoginActivity extends BaseActivity implements FacebookCallback{
 
     private EditText user;
     private EditText password;
@@ -40,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements FacebookCallback
     private LoginFirebase firebase;
     private ProgressBar progressBar;
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -99,6 +96,67 @@ public class LoginActivity extends AppCompatActivity implements FacebookCallback
             }
         });
 
+    }*/
+
+    @Override
+    protected void addLayout() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.activity_login,null);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        user = (EditText) view.findViewById(R.id.user_edit_text);
+        password = (EditText) view.findViewById(R.id.password_edit_text);
+        loginButton = (Button) view.findViewById(R.id.auth_button);
+        facebookLogin = (LinearLayout) view.findViewById(R.id.facebook_login);
+        register = (TextView) view.findViewById(R.id.register_button);
+        forgot = (TextView) view.findViewById(R.id.forgot_button);
+        firebase = new LoginFirebase(this);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_login_screen);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userName = user.getText().toString();
+                String passwordText = password.getText().toString();
+                if (userName == null || userName.equals("")) {
+                    Toast.makeText(LoginActivity.this, R.string.login_user_empty, Toast.LENGTH_SHORT).show();
+
+                } else if (passwordText == null || passwordText.equals("")) {
+                    Toast.makeText(LoginActivity.this, R.string.login_password_empty, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    firebase.login(userName, passwordText);
+                    progressBar.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgotActivity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
+
+
+        facebookCallbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(facebookCallbackManager, this);
+        facebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile", "email"));
+            }
+        });
+        contentLayout.addView(view);
     }
 
     @Override

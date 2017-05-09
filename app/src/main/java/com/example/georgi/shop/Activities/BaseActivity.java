@@ -1,6 +1,7 @@
 package com.example.georgi.shop.Activities;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected LinearLayout contentLayout;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_base);
+        setContentView(R.layout.activity_base);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("SHOP");
@@ -90,4 +91,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.shopCart:
+                Intent intent = new Intent(this, ShoppingBasketActivity.class);
+                startActivity(intent);
+                return  true;
+            case R.id.favorite:
+                Intent favoriteIntent = new Intent(this, FavoriteProductsActivity.class);
+                startActivity(favoriteIntent);
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 }
