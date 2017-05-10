@@ -37,4 +37,10 @@
         <item>4 buc</item>
         <item>5 buc</item>
     </string-array>
+
+    <string-array name="profileSex">
+        <item>Masculin</item>
+        <item>Feminin</item>
+    </string-array>
+
 </resources>

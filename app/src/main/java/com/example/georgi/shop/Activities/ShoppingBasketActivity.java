@@ -131,15 +131,15 @@ public class ShoppingBasketActivity extends BaseActivity {
         ArrayList<ReviewModel> reviews = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
-        reviews.add(new ReviewModel("1", "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
-        reviews.add(new ReviewModel("2", "excelent","Un produs reussit", user, date, 5));
-        reviews.add(new ReviewModel("3", "prost","Un produs mai prost de atat nu am vazut niciodata.....niciodata", user, date, 1));
-        reviews.add(new ReviewModel("4", "dezamagitor","Ma asteptam la mai mult cu asemenea specificatii", user, date, 2));
-        reviews.add(new ReviewModel("5", "se putea si mai bine","Merge, dar....", user, date, 4));
-        reviews.add(new ReviewModel("6", "dragut, dar nu prea","", user, date, 2));
-        reviews.add(new ReviewModel("7", "excelent","Sunt foate multumita de acest produs. Mi-a schimbat viata radical", user, date, 5));
-        reviews.add(new ReviewModel("8", "alta intrebare?","Deci?", user, date, 4));
-        reviews.add(new ReviewModel("9", "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));
+        reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
+        reviews.add(new ReviewModel(2, "excelent","Un produs reussit", user, date, 5));
+        reviews.add(new ReviewModel(3, "prost","Un produs mai prost de atat nu am vazut niciodata.....niciodata", user, date, 1));
+        reviews.add(new ReviewModel(4, "dezamagitor","Ma asteptam la mai mult cu asemenea specificatii", user, date, 2));
+        reviews.add(new ReviewModel(5, "se putea si mai bine","Merge, dar....", user, date, 4));
+        reviews.add(new ReviewModel(6, "dragut, dar nu prea","", user, date, 2));
+        reviews.add(new ReviewModel(7, "excelent","Sunt foate multumita de acest produs. Mi-a schimbat viata radical", user, date, 5));
+        reviews.add(new ReviewModel(8, "alta intrebare?","Deci?", user, date, 4));
+        reviews.add(new ReviewModel(9, "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));
 
 
         //Laptop,Tablete,Telefoane
@@ -159,7 +159,7 @@ public class ShoppingBasketActivity extends BaseActivity {
         images.add("https://s5emagst.akamaized.net/products/4141/4140183/images/res_98f5a2c1fbf08604ac8f03e7e566147d_450x450_t9qe.jpg");
         images.add("https://s5emagst.akamaized.net/products/4141/4140183/images/res_6e75432b089311efd7ed1f0f801ff7d3_450x450_66nn.jpg");
 
-        products.add(new Product("1", "Laptop ASUS X550VX-XX017D", " Procesor Intel® Core™ i7-6700HQ 2.60GHz, Skylake™, 15.6\", 8GB, 256GB SSD, nVIDIA GeForce GTX 950M 2GB, Free DOS",
+        products.add(new Product(1, "Laptop ASUS X550VX-XX017D", " Procesor Intel® Core™ i7-6700HQ 2.60GHz, Skylake™, 15.6\", 8GB, 256GB SSD, nVIDIA GeForce GTX 950M 2GB, Free DOS",
                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 4249.99f, 30, "eMAG", 24, 21, reviews));
 
         /*images = new ArrayList<>();
@@ -170,7 +170,7 @@ public class ShoppingBasketActivity extends BaseActivity {
         images.add("https://s5emagst.akamaized.net/products/4714/4713031/images/res_225d7d3d0c883f86280bd3f9a14f26a6_450x450_heee.jpg");
         images.add("https://s5emagst.akamaized.net/products/4714/4713031/images/res_6a422db87a46b91deb827ba08e07701d_450x450_12vm.jpg");
 
-        products.add(new Product("2", "Laptop ASUS X540SA-XX311", " Procesor Intel® Celeron® N3060 1.60GHz, Braswell, 15.6\", 4GB, 500GB, DVD-RW, Intel® HD Graphics 400, Free DOS, Chocolate Black",
+        products.add(new Product(2, "Laptop ASUS X540SA-XX311", " Procesor Intel® Celeron® N3060 1.60GHz, Braswell, 15.6\", 4GB, 500GB, DVD-RW, Intel® HD Graphics 400, Free DOS, Chocolate Black",
                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 1666.0f, 36, "Biasicom", 24, 4, null));
 
 
@@ -181,7 +181,7 @@ public class ShoppingBasketActivity extends BaseActivity {
         images.add("https://s5emagst.akamaized.net/products/3445/3444790/images/img301171_18062013140414_4_450x450_1cpd.jpg");
         images.add("https://s5emagst.akamaized.net/products/3445/3444790/images/img301171_18062013140413_1_full.jpg");
 
-        products.add(new Product("3", "Laptop Apple MacBook Air 13", " Procesor Intel® Dual Core™ i5 1.60GHz, 13.3\", 8GB, 128GB SSD, Intel® HD Graphics 6000, OS X El Capitan, RO KB",
+        products.add(new Product(3, "Laptop Apple MacBook Air 13", " Procesor Intel® Dual Core™ i5 1.60GHz, 13.3\", 8GB, 128GB SSD, Intel® HD Graphics 6000, OS X El Capitan, RO KB",
                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 5399.0f, 16, "eMAG", 24, 40, reviews));
 
 
@@ -193,7 +193,7 @@ public class ShoppingBasketActivity extends BaseActivity {
         images.add("https://s5emagst.akamaized.net/products/5138/5137126/images/res_c1c90de37fa55ce61dfa0559a7ef0b12_450x450_seu2.jpg");
         images.add("https://s5emagst.akamaized.net/products/5138/5137126/images/res_46d953466630dcbc0359deccd5ebdc83_450x450_ttcr.jpg");
 
-        products.add(new Product("7", "Laptop Gaming Acer Aspire F5-573G-707G", "Procesor  Intel® Core™ i7-7500U 2.70 GHz, Kaby Lake™, 15.6\", Full HD, 8GB, 256GB SSD, DVD-RW, nVIDIA GeForce GTX 950M 4GB, Linux, Silver",
+        products.add(new Product(7, "Laptop Gaming Acer Aspire F5-573G-707G", "Procesor  Intel® Core™ i7-7500U 2.70 GHz, Kaby Lake™, 15.6\", Full HD, 8GB, 256GB SSD, DVD-RW, nVIDIA GeForce GTX 950M 4GB, Linux, Silver",
                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 4742.39f, 36, "Neoplaza", 24, 14, reviews));*/
 
         ArrayList<Integer> number = new ArrayList<>();
@@ -202,6 +202,6 @@ public class ShoppingBasketActivity extends BaseActivity {
       //  number.add(2);
        // number.add(1);
 
-        basket = new ShoppingBasket("1", user, products, number);
+        basket = new ShoppingBasket(1, user, products, number);
     }
 }

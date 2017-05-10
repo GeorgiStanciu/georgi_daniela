@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/chiffon"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_tablet"
+        android:tint="@color/berry"
+        android:id="@+id/category_icon"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Laptop, Tablete &amp; Telefoane"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_gravity="center"
+        android:textColor="@color/matteBlack"
+        android:id="@+id/category_name"
+        android:textSize="18sp"
+        />
+</LinearLayout>

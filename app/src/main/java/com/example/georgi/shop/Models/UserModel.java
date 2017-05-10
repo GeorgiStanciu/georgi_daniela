@@ -7,9 +7,10 @@ import java.io.Serializable;
  */
 
 public class UserModel implements Serializable {
+
+    private String id;
     private String name;
     private String email;
-    private String id;
     private String address;
     private String birthDate;
     private String pictureUrl;

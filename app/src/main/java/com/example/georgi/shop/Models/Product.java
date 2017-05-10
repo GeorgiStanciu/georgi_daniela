@@ -1,8 +1,5 @@
 package com.example.georgi.shop.Models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -12,7 +9,7 @@ import java.util.ArrayList;
 
 public class Product implements Serializable{
 
-    private String id;
+    private int id;
     private String name;
     private String description;
     private float price;
@@ -27,14 +24,14 @@ public class Product implements Serializable{
 
 
 
-    public Product(String id, String name, String description, float price) {
+    public Product(int id, String name, String description, float price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public Product(String id, String name, String description, ArrayList<String> images, String category,
+    public Product(int id, String name, String description, ArrayList<String> images, String category,
                    float price, int discount, String seller, int guarantee, int quantity, ArrayList<ReviewModel> reviews) {
         this.id = id;
         this.name = name;
@@ -50,11 +47,11 @@ public class Product implements Serializable{
         this.rating = 0.00f;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

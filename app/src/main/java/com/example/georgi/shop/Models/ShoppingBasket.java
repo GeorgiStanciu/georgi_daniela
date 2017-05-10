@@ -9,23 +9,23 @@ import java.util.ArrayList;
 
 public class ShoppingBasket implements Serializable{
 
-    private String id;
+    private int id;
     private UserModel user;
     private ArrayList<Product> products;
     private ArrayList<Integer> productsNumber;
 
-    public ShoppingBasket(String id, UserModel user, ArrayList<Product> products, ArrayList<Integer> productsNumber) {
+    public ShoppingBasket(int id, UserModel user, ArrayList<Product> products, ArrayList<Integer> productsNumber) {
         this.id = id;
         this.user = user;
         this.products = products;
         this.productsNumber = productsNumber;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class ReviewModel implements Serializable{
 
-    private String id;
+    private int id;
     private String title;
     private String review;
     private UserModel user;
@@ -17,7 +17,7 @@ public class ReviewModel implements Serializable{
     private int qualifying;
 
 
-    public ReviewModel(String id, String title, String review, UserModel user, Date date, int qualifying) {
+    public ReviewModel(int id, String title, String review, UserModel user, Date date, int qualifying) {
         this.id = id;
         this.title = title;
         this.review = review;
@@ -27,7 +27,6 @@ public class ReviewModel implements Serializable{
     }
 
     public ReviewModel(String title, String review, UserModel user, Date date, int qualifying) {
-        this.id = id;
         this.title = title;
         this.review = review;
         this.user = user;
@@ -38,11 +37,11 @@ public class ReviewModel implements Serializable{
     public ReviewModel() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
