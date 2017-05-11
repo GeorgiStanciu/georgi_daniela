@@ -1,8 +1,15 @@
 package com.example.georgi.shop.Activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v4.content.IntentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.Models.Product;
@@ -21,12 +28,51 @@ public class FavoriteProductsActivity extends BaseActivity {
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_favorite_products,null);
+        RelativeLayout emptyFavorite = (RelativeLayout) view.findViewById(R.id.empty_favorite_layout);
         GridView gridView = (GridView) view.findViewById(R.id.favorite_products_grid);
 
+        final SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
+        final String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
         populateProducts();
-        ProductAdapter adapter = new ProductAdapter(this, products);
-        gridView.setAdapter(adapter);
 
+        if(userId.equals("") || products == null || products.size() == 0){
+            emptyFavorite.setVisibility(View.VISIBLE);
+            gridView.setVisibility(View.GONE);
+
+            TextView emptyText = (TextView) view.findViewById(R.id.message_empty_favorite);
+            Button emptyButton = (Button) view.findViewById(R.id.empty_favorite_button);
+            if(userId.equals("")){
+                emptyText.setText("Autentifica-te pentru a sincroniza \n produsele din lista de favorite.");
+                emptyButton.setText("Autentifica-te");
+                emptyButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(FavoriteProductsActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            else{
+                emptyText.setText("Gaseste cele mai bune oferte \n si cumpara in siguranta!");
+                emptyButton.setText("Vezi produce in magazin");
+                emptyButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(FavoriteProductsActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+
+        else{
+            emptyFavorite.setVisibility(View.GONE);
+            gridView.setVisibility(View.VISIBLE);
+            ProductAdapter adapter = new ProductAdapter(this, products);
+            gridView.setAdapter(adapter);
+        }
         contentLayout.addView(view);
     }
 

@@ -11,8 +11,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profile_logout"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/shop"
+                android:tint="@color/berry"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:id="@+id/shopping_basket_icon"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nu esti autentificat"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:layout_below="@id/shopping_basket_icon"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:textColor="@color/matteBlack"
+                android:textStyle="bold"
+                android:id="@+id/logout_title"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_below="@id/logout_title"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:textColor="@color/matteBlack"
+                android:id="@+id/message_logout_profile"
+                android:text="Autentificate pentru a \n vedea si modifica profilul"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_button"
+                android:text="Autentifica-te"
+                android:textColor="@color/chiffon"
+                android:textSize="@dimen/activity_horizontal_margin"
+                android:id="@+id/login_profile_button"
+                android:layout_below="@id/message_logout_profile"
+                />
+        </RelativeLayout>
+
     <include
         layout="@layout/profile_drawer"
+        android:id="@+id/profile_picture"
         />
 
         <LinearLayout
@@ -20,6 +73,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/chiffon"
+            android:id="@+id/profile_login"
             android:padding="@dimen/activity_horizontal_margin">
 
             <EditText
@@ -69,7 +123,7 @@
                 />
 
             <EditText
-                android:id="@+id/bill_user_address"
+                android:id="@+id/profile_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -77,7 +131,7 @@
                 android:textColor="@color/matteBlack" />
 
             <EditText
-                android:id="@+id/bill_user_card_number"
+                android:id="@+id/profile_card_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -87,7 +141,7 @@
                 />
 
             <Button
-                android:id="@+id/orders"
+                android:id="@+id/view_orders_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -102,7 +156,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
                 <Button
-                    android:id="@+id/Save"
+                    android:id="@+id/save_profile_button"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/round_button"

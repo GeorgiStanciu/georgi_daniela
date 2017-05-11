@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/chiffon">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comanda nr. 234453"
+        android:textSize="20sp"
+        android:textColor="@color/matteBlack"
+        android:id="@+id/order_number"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plasata pe 29 noiembrie 2016, 21:23"
+        android:paddingTop="10dp"
+        android:id="@+id/order_date"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: 231.89 Lei"
+        android:paddingTop="10dp"
+        android:id="@+id/order_cost"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:id="@+id/order_product_list"
+        android:scrollbars="none"
+        />
+
+</LinearLayout>

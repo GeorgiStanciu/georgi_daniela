@@ -16,6 +16,7 @@ public class UserModel implements Serializable {
     private String pictureUrl;
     private String phone;
     private String cardNumber;
+    private String sex;
 
     public UserModel(){
         this.name = "";
@@ -107,5 +108,13 @@ public class UserModel implements Serializable {
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
