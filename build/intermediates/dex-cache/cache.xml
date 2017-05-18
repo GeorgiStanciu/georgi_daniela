@@ -7,26 +7,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b8c5d8cfd7888d5701af24ed2f3d2ce07dc0b275">
+        sha1="2de7e3086adf8d40df48bad220473496a1758e97">
         <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_42ef66ce3ac8bc77a0d4b0a117d7af274d6f1a92\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Georgi\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_a06be748bb5a1981aa72a74935796e326f691515\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Georgi\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_dc089cea4f2e4164b5c86351a5f4e9baa5701a82\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -34,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_18424414944a69ac642bb460415d2858f8520c17\classes.dex" />
     </item>
 

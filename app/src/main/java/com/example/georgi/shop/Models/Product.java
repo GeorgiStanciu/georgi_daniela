@@ -24,12 +24,31 @@ public class Product implements Serializable{
 
 
 
-    public Product(int id, String name, String description, float price) {
+    public Product(int id, String name, String description, String category, float price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.category = category;
+        this.discount = 0;
+        this.seller = "";
+        this.guarantee = 0;
+        this.quantity = -1;
+        this.rating = 0.00f;
     }
+
+    public Product( String name, String description, String category, float price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.discount = 0;
+        this.seller = "";
+        this.guarantee = 0;
+        this.quantity = -1;
+        this.rating = 0.00f;
+    }
+
 
     public Product(int id, String name, String description, ArrayList<String> images, String category,
                    float price, int discount, String seller, int guarantee, int quantity, ArrayList<ReviewModel> reviews) {
@@ -46,6 +65,41 @@ public class Product implements Serializable{
         this.reviews = reviews;
         this.rating = 0.00f;
     }
+
+    public Product(int id, String name, String description, ArrayList<String> images, String category,
+                   float price, int discount, String seller, int guarantee, int quantity, ArrayList<ReviewModel> reviews, float rating) {
+
+
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.images = images;
+        this.category = category;
+        this.discount = discount;
+        this.seller = seller;
+        this.guarantee = guarantee;
+        this.quantity = quantity;
+        this.reviews = reviews;
+        this.rating = rating;
+    }
+
+    public Product(String name, String description, ArrayList<String> images, String category,
+                   float price, int discount, String seller, int guarantee, int quantity, ArrayList<ReviewModel> reviews, float rating) {
+
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.images = images;
+        this.category = category;
+        this.discount = discount;
+        this.seller = seller;
+        this.guarantee = guarantee;
+        this.quantity = quantity;
+        this.reviews = reviews;
+        this.rating = rating;
+    }
+
 
     public int getId() {
         return id;
@@ -153,3 +207,5 @@ public class Product implements Serializable{
     }
 
 }
+
+

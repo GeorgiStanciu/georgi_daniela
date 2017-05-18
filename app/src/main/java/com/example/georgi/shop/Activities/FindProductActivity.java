@@ -35,7 +35,7 @@ public class FindProductActivity extends BaseActivity {
         categories.add(new Category(2, "PC, Periferice & Software", "", R.mipmap.ic_mouse_variant));
         categories.add(new Category(3, "TV, Audio, Foto & Gamming", "", R.mipmap.ic_camera));
         categories.add(new Category(4, "Elenctrocasnice & Climatizare", "", R.mipmap.ic_washing_machine));
-        categories.add(new Category(5, "Fashio", "", R.mipmap.ic_tshirt));
+        categories.add(new Category(5, "Fashion", "", R.mipmap.ic_tshirt));
         categories.add(new Category(6, "Ingrijire Personala & Cosmetice", "", R.mipmap.ic_face));
         categories.add(new Category(7, "Carti, Birotica & Cadouri", "", R.mipmap.ic_gift));
         categories.add(new Category(8, "Casa, Bricolaj & Petshop", "", R.mipmap.ic_sofa));

@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
+import com.example.georgi.shop.Models.FavoriteProducts;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.Models.ReviewModel;
 import com.example.georgi.shop.Models.UserModel;
@@ -23,7 +24,7 @@ import java.util.Date;
 
 public class FavoriteProductsActivity extends BaseActivity {
 
-    private ArrayList<Product> products;
+    private FavoriteProducts favorite;
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -35,7 +36,7 @@ public class FavoriteProductsActivity extends BaseActivity {
         final String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
         populateProducts();
 
-        if(userId.equals("") || products == null || products.size() == 0){
+        if(userId.equals("") || favorite.getProducts() == null || favorite.getProducts().size() == 0){
             emptyFavorite.setVisibility(View.VISIBLE);
             gridView.setVisibility(View.GONE);
 
@@ -70,13 +71,14 @@ public class FavoriteProductsActivity extends BaseActivity {
         else{
             emptyFavorite.setVisibility(View.GONE);
             gridView.setVisibility(View.VISIBLE);
-            ProductAdapter adapter = new ProductAdapter(this, products);
+            ProductAdapter adapter = new ProductAdapter(this, favorite.getProducts());
             gridView.setAdapter(adapter);
         }
         contentLayout.addView(view);
     }
 
     private void populateProducts() {
+        favorite = new FavoriteProducts();
         UserModel user = new UserModel("email", "1", "Georgi");
         ArrayList<ReviewModel> reviews = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
@@ -97,6 +99,7 @@ public class FavoriteProductsActivity extends BaseActivity {
         //Laptop si accesorii
 
         //Laptop
+        ArrayList<Product> products;
         products = new ArrayList<>();
         ArrayList<String> images = new ArrayList<>();
         images.add("https://s5emagst.akamaized.net/products/4141/4140183/images/res_e3aa490ff1062047b57a6a7a390fd55a_450x450_6dgt.jpg");
@@ -208,5 +211,7 @@ public class FavoriteProductsActivity extends BaseActivity {
         products.add(new Product(10, "Laptop Apple MacBook 12", " Procesor  Intel® Dual Core™ M5 1.20GHz, 12\", Ecran Retina, 8GB, 512GB SSD, Intel® HD Graphics 515, OS X El Capitan, RO KB, Rose Gold",
                 images, "Laptop,Tablete, Telefoane/Laptop si accesorii/Laptop", 8399.0f, 10, "eMag", 24, 13, reviews));
 
+
+        favorite.setProducts(products);
     }
     }

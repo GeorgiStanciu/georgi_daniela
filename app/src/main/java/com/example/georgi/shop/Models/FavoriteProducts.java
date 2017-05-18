@@ -19,6 +19,9 @@ public class FavoriteProducts implements Serializable{
         this.products = products;
     }
 
+    public FavoriteProducts(){
+
+    }
     public int getId() {
         return id;
     }
