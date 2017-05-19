@@ -10,6 +10,9 @@ public class CommandResponse implements Serializable {
 
     private Object object;
 
+    public CommandResponse(Object object){
+        this.object = object;
+    }
     public  void setResponse(Object object){
 
         this.object = object;
