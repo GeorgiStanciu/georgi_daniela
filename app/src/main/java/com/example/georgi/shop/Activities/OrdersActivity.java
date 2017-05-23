@@ -60,8 +60,9 @@ public class OrdersActivity extends BaseActivity {
         UserModel user = new UserModel("email", "1", "Georgi");
         ArrayList<ReviewModel> reviews = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
+        Date utilDate = calendar.getTime();
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+      /*  reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
         reviews.add(new ReviewModel(2, "excelent","Un produs reussit", user, date, 5));
         reviews.add(new ReviewModel(3, "prost","Un produs mai prost de atat nu am vazut niciodata.....niciodata", user, date, 1));
         reviews.add(new ReviewModel(4, "dezamagitor","Ma asteptam la mai mult cu asemenea specificatii", user, date, 2));
@@ -71,7 +72,7 @@ public class OrdersActivity extends BaseActivity {
         reviews.add(new ReviewModel(8, "alta intrebare?","Deci?", user, date, 4));
         reviews.add(new ReviewModel(9, "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));
 
-
+*/
         ArrayList<Product> products = new ArrayList<>();
         ArrayList<Integer> productNumber = new ArrayList<>();
 

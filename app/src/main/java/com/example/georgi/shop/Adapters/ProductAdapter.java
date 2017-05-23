@@ -32,6 +32,11 @@ public class ProductAdapter extends BaseAdapter {
         this.context = context;
         this.products = products;
     }
+
+    public void setProducts(ArrayList<Product> products){
+        this.products = products;
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         if(products != null)
@@ -86,7 +91,7 @@ public class ProductAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ViewProductActivity.class);
-                intent.putExtra("product",product);
+                intent.putExtra("productId",product.getId());
                 ((Activity) context).startActivity(intent);
             }
         });

@@ -6,21 +6,19 @@ package com.example.georgi.shop.Models;
 
 public enum CommandEnum {
 
-    ViewProductCommand,
-    ViewCategoryCommand,
-    ViewFavoriteCommand,
-    ViewOrderedCommand,
-    ViewReviewCommand,
-    ViewBasketCommand,
-    ViewUserCommand,
+    ViewProductsCommand,
+    ViewCategoriesCommandByParent,
+    ViewOrderesCommand,
+    ViewUsersCommand,
+
 
     AddProductCommand,
     AddFavoriteCommand,
     AddOrderedCommand,
     AddReviewCommand,
     AddBasketCommand,
-    AddwUserCommand,
-
+    AddUserCommand,
+    AddProductToBasketCommand,
 
     UpdateProductCommand,
     UpdateFavoriteCommand,
@@ -37,12 +35,14 @@ public enum CommandEnum {
 
 
     GetProductCommand,
-    GetCategoryCommand,
-    GetFavoriteByUserCommand,
-    GetOrderedByUserCommand,
-    GetReviewByProductCommand,
+    GetProductByCategoryCommand,
+    GetFavoritesByUserCommand,
+    GetOrderesByUserCommand,
+    GetReviewsByProductCommand,
     GetBasketByUserCommand,
     GetUserCommand,
+    GetUserByFirebaseCommand
+
 
 
 }

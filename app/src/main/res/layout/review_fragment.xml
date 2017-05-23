@@ -113,7 +113,8 @@
                     android:gravity="center"
                     android:indeterminate="false"
                     android:progressTint="@color/yellow"
-                    android:scaleY="2" />
+                    android:scaleY="2"
+                    android:progress="0"/>
 
                 <TextView
                     android:id="@+id/five_stars_count"
@@ -149,7 +150,7 @@
                     android:layout_weight="50"
                     android:gravity="center"
                     android:indeterminate="false"
-
+                    android:progress="0"
                     android:progressTint="@color/yellow"
                     android:scaleY="2" />
 
@@ -188,7 +189,8 @@
                     android:gravity="center"
                     android:indeterminate="false"
                     android:progressTint="@color/yellow"
-                    android:scaleY="2" />
+                    android:scaleY="2"
+                    android:progress="0"/>
 
                 <TextView
                     android:id="@+id/three_stars_count"
@@ -225,7 +227,8 @@
                     android:gravity="center"
                     android:indeterminate="false"
                     android:progressTint="@color/yellow"
-                    android:scaleY="2" />
+                    android:scaleY="2"
+                    android:progress="0"/>
 
                 <TextView
                     android:id="@+id/two_stars_count"
@@ -249,7 +252,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="1 stele" />
+                    android:text="1 stea" />
 
                 <ProgressBar
                     android:id="@+id/one_stars_progress"
@@ -262,7 +265,8 @@
                     android:gravity="center"
                     android:indeterminate="false"
                     android:progressTint="@color/yellow"
-                    android:scaleY="2" />
+                    android:scaleY="2"
+                    android:progress="0"/>
 
                 <TextView
                     android:id="@+id/one_stars_count"

@@ -4,12 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import com.example.georgi.shop.Activities.LoginActivity;
+import com.example.georgi.shop.Helpers.Command;
+import com.example.georgi.shop.Helpers.CommandResponse;
 import com.example.georgi.shop.Helpers.GlobalBus;
 import com.example.georgi.shop.Helpers.OnUserLogin;
+import com.example.georgi.shop.Models.CommandEnum;
+import com.example.georgi.shop.Models.UserModel;
 import com.example.georgi.shop.R;
 import com.facebook.AccessToken;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -99,7 +104,9 @@ public class LoginFirebase {
             /*DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
             UserModel newUser = new UserModel(userId, email, name, "", "");
             databaseReference.setValue(newUser);*/
-            setUserPreference(userId);
+            //setUserPreference(userId);
+            UserModel userModel = new UserModel(email, userId, name);
+            new SetUser(userModel).execute();
         }
         GlobalBus.getBus().post(new OnUserLogin(true));
     }
@@ -125,21 +132,45 @@ public class LoginFirebase {
 
 
 
-    private void setUserPreference(String userId){
+    private void setUserPreference(int userId){
         SharedPreferences sharedPreferences = activity.getSharedPreferences(activity.getString(R.string.preference), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(activity.getString(R.string.user_id_preference), userId);
+        editor.putInt(activity.getString(R.string.user_id_preference), userId);
         editor.commit();
     }
 
     public void logout(){
 
         firebaseAuth.signOut();
-        setUserPreference("");
+        setUserPreference(0);
         Intent intent = new Intent(activity, LoginActivity.class);
         activity.startActivity(intent);
         activity.finish();
     }
 
 
+    class SetUser extends AsyncTask{
+
+        UserModel user;
+        int id;
+        SetUser(UserModel user){
+            this.user = user;
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            Client client =  new Client();
+            client.connectToServer();
+            CommandResponse rs = client.receiveDataFromServer(new Command(CommandEnum.AddUserCommand, user));
+            id = (int) rs.getResponse();
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            setUserPreference(id);
+        }
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.georgi.shop.Services;
 
 import com.example.georgi.shop.Helpers.Command;
+import com.example.georgi.shop.Helpers.CommandResponse;
+import com.example.georgi.shop.Helpers.DeserializateResponse;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -58,7 +60,7 @@ public class Client {
         }
     }
 
-    public String receiveDataFromServer(Command command){
+    public CommandResponse receiveDataFromServer(Command command){
 
         try{
 
@@ -66,8 +68,10 @@ public class Client {
             output.writeObject(gson);
             output.flush();
             String json = (String) input.readObject();
+            DeserializateResponse response = new DeserializateResponse(json, command.getCommand());
 
-            return json;
+            CommandResponse commandResponse =  response.getResponse();
+            return commandResponse;
         }catch (IOException e){
 
         } catch (ClassNotFoundException e) {

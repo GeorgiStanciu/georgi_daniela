@@ -32,9 +32,9 @@ public class ProfileActivity extends BaseActivity {
         LinearLayout loginLayout = (LinearLayout) view.findViewById(R.id.profile_login);
         View profileLayout = view.findViewById(R.id.profile_picture);
         final SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
-        final String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
+        final int userId = sharedPreferences.getInt(getString(R.string.user_id_preference), 0);
 
-        if(userId.equals("")){
+        if(userId == 0){
             loginLayout.setVisibility(View.GONE);
             profileLayout.setVisibility(View.GONE);
             logoutLayout.setVisibility(View.VISIBLE);

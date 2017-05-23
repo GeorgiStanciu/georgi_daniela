@@ -26,22 +26,21 @@
         android:background="@color/smoke"
         android:layout_below="@id/close_add_review"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        />
+        android:id="@+id/view" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/close_add_review"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:scaleX=".7"
         android:scaleY=".7"
         android:numStars="5"
         android:stepSize="1"
         android:progressTint="@color/yellow"
-        android:layout_centerHorizontal="true"
         android:id="@+id/add_review_rating"
 
-        />
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

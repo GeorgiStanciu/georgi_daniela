@@ -6,6 +6,7 @@ import android.widget.GridView;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.Helpers.Command;
+import com.example.georgi.shop.Helpers.CommandResponse;
 import com.example.georgi.shop.Models.CommandEnum;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.Models.ReviewModel;
@@ -58,21 +59,8 @@ public class MainActivity extends BaseActivity {
             public void run() {
                 Client client =  new Client();
                 client.connectToServer();
-                ArrayList<String> images = new ArrayList<>();
-                images.add("https://s5emagst.akamaized.net/products/3614/3613418/images/res_efc6dede1156209461d8ce6d49d6f702_450x450_agt8.jpg");
-                images.add("https://s5emagst.akamaized.net/products/3614/3613418/images/res_90f69ecb595eb1eaf4454b3821d63931_450x450_8789.jpg");
-                images.add("https://s5emagst.akamaized.net/products/3614/3613418/images/res_e2f8d68916c112597e9a6b6c639ee9f5_450x450_4cuf.jpg");
-
-                Product product = new Product(76, "Joc DISHONORED 2 pentru PC", "DISHONORED 2 pentru PC",
-                        images, "Jocuri", 184.99f, 15, "Shop", 0, 0, null);
-                String response = client.receiveDataFromServer(new Command(CommandEnum.AddProductCommand, product));
-                System.out.print("");
-//                String response = client.receiveDataFromServer(new Command(CommandEnum.ViewProductCommand));
-//                JsonObject jsonObject = (JsonObject)(new JsonParser()).parse(response);
-//                JsonArray jsonArray = (JsonArray)jsonObject.get("object");
-//                Gson gson1 = new GsonBuilder().create();
-//                Type type = new TypeToken<ArrayList<Product>>(){}.getType();
-//                products = gson1.fromJson(jsonArray, type);
+                CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.ViewProductsCommand));
+                products = (ArrayList<Product>) response.getResponse();
 
                 runOnUiThread(new Runnable() {
                     @Override
@@ -145,8 +133,9 @@ public class MainActivity extends BaseActivity {
         ArrayList<ReviewModel> reviews = new ArrayList<>();
         ArrayList<String> images;
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
+        Date utilDate = calendar.getTime();
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+        /*reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
         reviews.add(new ReviewModel(2, "excelent","Un produs reussit", user, date, 5));
         reviews.add(new ReviewModel(3, "prost","Un produs mai prost de atat nu am vazut niciodata.....niciodata", user, date, 1));
         reviews.add(new ReviewModel(4, "dezamagitor","Ma asteptam la mai mult cu asemenea specificatii", user, date, 2));
@@ -154,7 +143,7 @@ public class MainActivity extends BaseActivity {
         reviews.add(new ReviewModel(6, "dragut, dar nu prea","", user, date, 2));
         reviews.add(new ReviewModel(7, "excelent","Sunt foate multumita de acest produs. Mi-a schimbat viata radical", user, date, 5));
         reviews.add(new ReviewModel(8, "alta intrebare?","Deci?", user, date, 4));
-        reviews.add(new ReviewModel(9, "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));
+        reviews.add(new ReviewModel(9, "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));*/
 
 
         //Laptop,Tablete,Telefoane

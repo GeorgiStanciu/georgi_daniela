@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class UserModel implements Serializable {
 
     private String id;
+    private String firebaseId;
     private String name;
     private String email;
     private String address;
@@ -23,10 +24,16 @@ public class UserModel implements Serializable {
         this.email = "";
         this.id = "";
     }
-    public UserModel(String email, String id, String name){
+    public UserModel(String email, String firebaseId, String name){
         this.email = email;
-        this.id  = id;
+        this.firebaseId = firebaseId;
         this.name = name;
+        this.address = "";
+        this.birthDate = null;
+        this.pictureUrl = "";
+        this.phone = "";
+        this.cardNumber = "";
+        this.sex = "Masculine";
     }
 
     public UserModel( String id, String email, String name, String address, String birthDate){
@@ -116,5 +123,14 @@ public class UserModel implements Serializable {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+
+    public String getFirebaseId() {
+        return firebaseId;
+    }
+
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
     }
 }

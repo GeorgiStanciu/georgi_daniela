@@ -142,8 +142,8 @@ public class RegisterActivity extends BaseActivity {
 
     private void startMainScreen(){
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
-        String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
-        if (!userId.equals("")) {
+        int userId = sharedPreferences.getInt(getString(R.string.user_id_preference), 0);
+        if (userId != 0) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

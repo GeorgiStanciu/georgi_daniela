@@ -16,8 +16,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.georgi.shop.Adapters.ProductImageAdapter;
+import com.example.georgi.shop.Helpers.GlobalBus;
+import com.example.georgi.shop.Helpers.OnReviewAdded;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.R;
+import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -29,7 +32,8 @@ public class ProductFragment extends Fragment {
     private String title;
     private int page;
     private Product product;
-
+    private RatingBar productRating;
+    private TextView reviewNumber;
 
     public static ProductFragment newInstance(int page, String title, Product product){
         ProductFragment productFragment = new ProductFragment();
@@ -53,10 +57,6 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.product_view_fragment, container, false);
 
-        product.setRating(4.2f);
-
-
-
         ImageView mainImage = (ImageView) view.findViewById(R.id.product_main_image);
         RecyclerView picturesView = (RecyclerView) view.findViewById(R.id.product_image_list);
         final ImageView addToFavorite =  (ImageView) view.findViewById(R.id.add_product_to_favorite);
@@ -67,8 +67,8 @@ public class ProductFragment extends Fragment {
         Picasso.with(getContext())
                 .load(product.getImages().get(0))
                 .into(mainImage);
-        RatingBar productRating = (RatingBar) view.findViewById(R.id.product_rating);
-        TextView reviewNumber = (TextView) view.findViewById(R.id.product_review_number);
+        productRating = (RatingBar) view.findViewById(R.id.product_rating);
+        reviewNumber = (TextView) view.findViewById(R.id.product_review_number);
         TextView stockState = (TextView) view.findViewById(R.id.product_stock_state);
         TextView seller = (TextView) view.findViewById(R.id.product_seller);
         TextView guarantee = (TextView) view.findViewById(R.id.product_guarantee);
@@ -132,7 +132,6 @@ public class ProductFragment extends Fragment {
         addToFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(addToFavorite.getTag() != null && addToFavorite.getTag().toString().equals("heart_outline")){
                     addToFavorite.setImageDrawable(getResources().getDrawable(R.mipmap.ic_heart));
                     addToFavorite.setTag("heart");
@@ -148,5 +147,27 @@ public class ProductFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Subscribe
+    public void onRatingUpdate(OnReviewAdded event){
+
+        productRating.setRating(event.getRating());
+        if(event.getCount() == 1)
+            reviewNumber.setText(event.getCount() +  " review");
+        else
+            reviewNumber.setText(event.getCount() +  " review-uri");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        GlobalBus.getBus().register(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        GlobalBus.getBus().unregister(this);
     }
 }

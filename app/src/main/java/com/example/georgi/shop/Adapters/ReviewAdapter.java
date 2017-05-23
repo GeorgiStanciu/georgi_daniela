@@ -56,7 +56,7 @@ public class ReviewAdapter extends BaseAdapter {
         TextView description = (TextView) cardView.findViewById(R.id.review_description);
 
         ratingBar.setRating(review.getQualifying());
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String dateString = format.format(review.getDate());
         dateClient.setText(dateString + " de "+ review.getUser().getName());
         title.setText(review.getTitle());

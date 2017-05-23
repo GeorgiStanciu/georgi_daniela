@@ -37,15 +37,15 @@ public class ShoppingBasketActivity extends BaseActivity {
         RelativeLayout emptyBasket = (RelativeLayout) view.findViewById(R.id.empty_shop);
         LinearLayout basketLayout = (LinearLayout) view.findViewById(R.id.shopping_basket_layout);
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
-        String userId = sharedPreferences.getString(getString(R.string.user_id_preference), "");
+        int userId = sharedPreferences.getInt(getString(R.string.user_id_preference), 0);
         populateBasket();
 
-        if(userId.equals("") || basket == null || basket.getProducts() == null || basket.getProducts().size() == 0){
+        if(userId == 0 || basket == null || basket.getProducts() == null || basket.getProducts().size() == 0){
             emptyBasket.setVisibility(View.VISIBLE);
             basketLayout.setVisibility(View.GONE);
             TextView emptyText = (TextView) view.findViewById(R.id.message_empty_basket);
             Button emptyButton = (Button) view.findViewById(R.id.empty_shop_button);
-            if(userId.equals("")){
+            if(userId == 0){
                 emptyText.setText("Autentifica-te pentru a sincroniza \n produsele din cos in contul tau.");
                 emptyButton.setText("Autentifica-te");
                 emptyButton.setOnClickListener(new View.OnClickListener() {
@@ -130,8 +130,9 @@ public class ShoppingBasketActivity extends BaseActivity {
         UserModel user = new UserModel("email", "1", "Georgi");
         ArrayList<ReviewModel> reviews = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
+        Date utilDate = calendar.getTime();
+        java.sql.Date date = new java.sql.Date(utilDate.getTime());
+        /*reviews.add(new ReviewModel(1, "excelent","Cel mai bun produs ever!!!!!", user, date, 5));
         reviews.add(new ReviewModel(2, "excelent","Un produs reussit", user, date, 5));
         reviews.add(new ReviewModel(3, "prost","Un produs mai prost de atat nu am vazut niciodata.....niciodata", user, date, 1));
         reviews.add(new ReviewModel(4, "dezamagitor","Ma asteptam la mai mult cu asemenea specificatii", user, date, 2));
@@ -140,7 +141,7 @@ public class ShoppingBasketActivity extends BaseActivity {
         reviews.add(new ReviewModel(7, "excelent","Sunt foate multumita de acest produs. Mi-a schimbat viata radical", user, date, 5));
         reviews.add(new ReviewModel(8, "alta intrebare?","Deci?", user, date, 4));
         reviews.add(new ReviewModel(9, "asa si asa","Eeeeee, oricum in vara imi iau altul", user, date, 3));
-
+*/
 
         //Laptop,Tablete,Telefoane
 

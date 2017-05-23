@@ -1,7 +1,7 @@
 package com.example.georgi.shop.Models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Georgi on 06.05.2017.
@@ -15,6 +15,7 @@ public class ReviewModel implements Serializable{
     private UserModel user;
     private Date date;
     private int qualifying;
+    private int productId;
 
 
     public ReviewModel(int id, String title, String review, UserModel user, Date date, int qualifying) {
@@ -26,12 +27,23 @@ public class ReviewModel implements Serializable{
         this.qualifying = qualifying;
     }
 
+
     public ReviewModel(String title, String review, UserModel user, Date date, int qualifying) {
         this.title = title;
         this.review = review;
         this.user = user;
         this.date = date;
         this.qualifying = qualifying;
+    }
+
+
+    public ReviewModel(String title, String review, UserModel user, Date date, int qualifying, int productId) {
+        this.title = title;
+        this.review = review;
+        this.user = user;
+        this.date = date;
+        this.qualifying = qualifying;
+        this.productId = productId;
     }
 
     public ReviewModel() {

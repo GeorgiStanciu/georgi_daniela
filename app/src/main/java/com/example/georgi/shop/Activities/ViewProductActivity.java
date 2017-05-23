@@ -1,30 +1,65 @@
 package com.example.georgi.shop.Activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.example.georgi.shop.Adapters.ProductPagerAdapter;
+import com.example.georgi.shop.Helpers.Command;
+import com.example.georgi.shop.Helpers.CommandResponse;
+import com.example.georgi.shop.Models.CommandEnum;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.R;
+import com.example.georgi.shop.Services.Client;
 
 public class ViewProductActivity extends BaseActivity {
+
+    private Product product;
+    private ProductPagerAdapter adapter;
+    private ViewPager viewPager;
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_view_product,null);
 
         Intent intent = getIntent();
-        Product product = (Product) intent.getSerializableExtra("product");
+        int productId = intent.getIntExtra("productId",0);
 
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
-        ProductPagerAdapter adapter = new ProductPagerAdapter(getSupportFragmentManager(), product);
-        viewPager.setAdapter(adapter);
+        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+        /*ProductPagerAdapter adapter = new ProductPagerAdapter(getSupportFragmentManager(), product);
+        viewPager.setAdapter(adapter);*/
+        new GetProduct(productId).execute();
         contentLayout.addView(view);
     }
 
-   /* @Override
+
+    class GetProduct extends AsyncTask {
+
+        private int productId;
+        GetProduct(int productId){
+            this.productId = productId;
+        }
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            Client client =  new Client();
+            client.connectToServer();
+            CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.GetProductCommand,productId));
+            product = (Product) response.getResponse();
+            Client c2 = new Client();
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            adapter = new ProductPagerAdapter(getSupportFragmentManager(), product);
+            viewPager.setAdapter(adapter);
+        }
+    }
+
+    /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_product);

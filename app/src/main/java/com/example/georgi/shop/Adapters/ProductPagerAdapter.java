@@ -28,9 +28,9 @@ public class ProductPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return ProductFragment.newInstance(0, "Product", product);
             case 1:
-                return ReviewFragment.newInstance(1, "Review", product.getReviews());
+                return ReviewFragment.newInstance(1, "Review", product.getReviews(), product.getId());
             case 2:
-                return SimilarProductsFragment.newInstance(2, "Similar Products");
+                return SimilarProductsFragment.newInstance(2, "Similar Products", product.getCategory());
             default:
                 return null;
         }
