@@ -24,6 +24,16 @@ public class OrderModel implements Serializable {
         this.cost = cost;
         this.orderDate = orderDate;
     }
+    public OrderModel( UserModel user, ArrayList<Product> products, ArrayList<Integer> productNumber, Date orderDate, float cost) {
+        this.id = id;
+        this.user = user;
+        this.products = products;
+        this.productNumber = productNumber;
+        this.cost = cost;
+        this.orderDate = orderDate;
+    }
+
+
 
     public int getId() {
         return id;

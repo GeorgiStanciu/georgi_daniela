@@ -73,6 +73,7 @@ public class SimilarProductsFragment extends Fragment {
             client.connectToServer();
             CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.GetProductByCategoryCommand, category));
             products = (ArrayList<Product>) response.getResponse();
+            client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
 
             return null;
         }

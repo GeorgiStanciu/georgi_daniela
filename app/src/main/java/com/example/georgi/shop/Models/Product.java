@@ -22,7 +22,6 @@ public class Product implements Serializable{
     private ArrayList<ReviewModel> reviews;
     private float rating;
 
-
     public Product(int id, String name, String description, String category, float price) {
         this.id = id;
         this.name = name;

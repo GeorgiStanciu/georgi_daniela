@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context="com.example.georgi.shop.Activities.ShoppingBasketActivity">
 
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical|center"
+        android:paddingTop="250dp"
+        android:id="@+id/progress_bar"
+
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,7 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/shopping_basket_layout">
+        android:id="@+id/shopping_basket_layout"
+        android:visibility="gone">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

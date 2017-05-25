@@ -108,7 +108,7 @@ public class ProfileActivity extends BaseActivity {
                 @Override
                 public void onClick(View view) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(ProfileActivity.this.getString(R.string.user_id_preference), "");
+                    editor.putInt(ProfileActivity.this.getString(R.string.user_id_preference), 0);
                     editor.commit();
                     Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
                     startActivity(intent);

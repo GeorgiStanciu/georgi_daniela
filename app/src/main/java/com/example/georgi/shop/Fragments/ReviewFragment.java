@@ -302,9 +302,9 @@ public class ReviewFragment extends Fragment {
             client.connectToServer();
             CommandResponse user = client.receiveDataFromServer(new Command(CommandEnum.GetUserCommand,userId));
             review.setUser((UserModel) user.getResponse());
-            Client client1 = new Client();
-            client1.connectToServer();
-            CommandResponse response = client1.receiveDataFromServer(new Command(CommandEnum.AddReviewCommand, review));
+            CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.AddReviewCommand, review));
+            client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
+
             return null;
         }
 

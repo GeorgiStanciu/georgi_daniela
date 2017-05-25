@@ -25,7 +25,11 @@ public class JsonDateDeserializer implements JsonDeserializer<Date> {
         java.util.Date startDate;
         try {
             startDate = df.parse(s);
-            Date d = new Date(startDate.getTime());
+            Locale locale = new Locale("ro");
+            DateFormat newDf = new SimpleDateFormat("MMM dd, yyyy", locale);
+            String formatDate = newDf.format(startDate.getTime());
+            java.util.Date newDate = newDf.parse(formatDate);
+            Date d = new Date(newDate.getTime());
             return d;
         } catch (ParseException e) {
             e.printStackTrace();

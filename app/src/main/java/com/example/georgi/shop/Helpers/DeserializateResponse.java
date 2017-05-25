@@ -43,8 +43,8 @@ public class DeserializateResponse {
         /*GsonBuilder gsonBuilder = new GsonBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
         gsonBuilder.setDateFormat("yyyy/MM/dd");*/
-        Gson gson = new GsonBuilder().registerTypeAdapter(java.sql.Date.class, new JsonDateDeserializer())
-                                     .create();
+        SqlDateTypeAdapter adapter = new SqlDateTypeAdapter();
+        Gson gson = new GsonBuilder().registerTypeAdapter(java.sql.Date.class, adapter).setDateFormat("MMM dd, yyyy").create();
         CommandResponse commandResponse = null;
 
         if(command == CommandEnum.ViewProductsCommand || command == CommandEnum.GetProductByCategoryCommand) {
@@ -82,9 +82,8 @@ public class DeserializateResponse {
 
 
         else if(command == CommandEnum.GetBasketByUserCommand) {
-            JsonArray jsonArray = (JsonArray)jsonObject.get("object");
-            Type type = new TypeToken<ArrayList<ShoppingBasket>>() {}.getType();
-            Object object = gson.fromJson(jsonArray, type);
+            JsonObject jsonArray = (JsonObject) jsonObject.get("object");
+            Object object = gson.fromJson(jsonArray, ShoppingBasket.class);
             commandResponse = new CommandResponse(object);
         }
 
@@ -118,6 +117,11 @@ public class DeserializateResponse {
         else if(command == CommandEnum.AddUserCommand){
             JsonPrimitive jsonObj = (JsonPrimitive) jsonObject.get("object");
             Object object = gson.fromJson(jsonObj, Integer.class);
+            commandResponse = new CommandResponse(object);
+        }
+        else if(command == CommandEnum.GetIsFavoriteProductCommand){
+            JsonPrimitive jsonPrimitive = (JsonPrimitive) jsonObject.get("object");
+            Object object = gson.fromJson(jsonPrimitive, boolean.class);
             commandResponse = new CommandResponse(object);
         }
         return commandResponse;

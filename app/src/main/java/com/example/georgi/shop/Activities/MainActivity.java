@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity {
                 client.connectToServer();
                 CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.ViewProductsCommand));
                 products = (ArrayList<Product>) response.getResponse();
+                client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
 
                 runOnUiThread(new Runnable() {
                     @Override

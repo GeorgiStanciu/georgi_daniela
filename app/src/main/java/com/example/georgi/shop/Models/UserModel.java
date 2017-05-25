@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class UserModel implements Serializable {
 
-    private String id;
+    private int id;
     private String firebaseId;
     private String name;
     private String email;
@@ -22,7 +22,7 @@ public class UserModel implements Serializable {
     public UserModel(){
         this.name = "";
         this.email = "";
-        this.id = "";
+        this.id = 0;
     }
     public UserModel(String email, String firebaseId, String name){
         this.email = email;
@@ -36,7 +36,7 @@ public class UserModel implements Serializable {
         this.sex = "Masculine";
     }
 
-    public UserModel( String id, String email, String name, String address, String birthDate){
+    public UserModel( int id, String email, String name, String address, String birthDate){
         this.email = email;
         this.id  = id;
         this.name = name;
@@ -44,7 +44,7 @@ public class UserModel implements Serializable {
         this.birthDate = birthDate;
         this.pictureUrl = "";
     }
-    public UserModel( String id, String email, String name, String address, String birthDate, String url){
+    public UserModel( int id, String email, String name, String address, String birthDate, String url){
         this.email = email;
         this.id  = id;
         this.name = name;
@@ -69,11 +69,11 @@ public class UserModel implements Serializable {
         this.email = email;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -32,6 +32,7 @@ public enum CommandEnum {
     RemoveFavoriteCommand,
     RemoveReviewCommand,
     RemoveUserCommand,
+    RemoveProductFromBasketCommand,
 
 
     GetProductCommand,
@@ -41,8 +42,11 @@ public enum CommandEnum {
     GetReviewsByProductCommand,
     GetBasketByUserCommand,
     GetUserCommand,
-    GetUserByFirebaseCommand
+    GetUserByFirebaseCommand,
+    GetIsFavoriteProductCommand,
 
+
+    EndConnectionCommand
 
 
 }

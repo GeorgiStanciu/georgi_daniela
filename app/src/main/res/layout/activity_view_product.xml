@@ -93,5 +93,6 @@
         android:src="@mipmap/ic_shopping"
         app:backgroundTint="@color/cherry"
         android:padding="@dimen/design_navigation_padding_top_default"
-        android:layout_margin="@dimen/fab_margin"/>
+        android:layout_margin="@dimen/fab_margin"
+        android:id="@+id/add_to_basket"/>
 </android.support.design.widget.CoordinatorLayout>

@@ -163,6 +163,8 @@ public class LoginFirebase {
             client.connectToServer();
             CommandResponse rs = client.receiveDataFromServer(new Command(CommandEnum.AddUserCommand, user));
             id = (int) rs.getResponse();
+            user.setId(id);
+            client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
 
 
             return null;

@@ -1,7 +1,6 @@
 package com.example.georgi.shop.Models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by Georgi on 10-May-17.
@@ -11,14 +10,18 @@ public class FavoriteProducts implements Serializable{
 
     private int id;
     private UserModel user;
-    private ArrayList<Product> products;
+    private Product product;
 
-    public FavoriteProducts(int id, UserModel user, ArrayList<Product> products) {
+    public FavoriteProducts(int id, UserModel user, Product product) {
         this.id = id;
         this.user = user;
-        this.products = products;
+        this.product = product;
     }
 
+    public FavoriteProducts( UserModel user, Product product) {
+        this.user = user;
+        this.product = product;
+    }
     public FavoriteProducts(){
 
     }
@@ -38,11 +41,11 @@ public class FavoriteProducts implements Serializable{
         this.user = user;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

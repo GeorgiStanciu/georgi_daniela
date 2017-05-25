@@ -17,16 +17,18 @@ public class ProductPagerAdapter extends FragmentPagerAdapter {
 
     private final  int numItmes = 3;
     private Product product;
-    public ProductPagerAdapter(FragmentManager fm, Product product) {
+    private boolean isFavorite;
+    public ProductPagerAdapter(FragmentManager fm, Product product, boolean isFavorite) {
         super(fm);
         this.product = product;
+        this.isFavorite = isFavorite;
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return ProductFragment.newInstance(0, "Product", product);
+                return ProductFragment.newInstance(0, "Product", product, isFavorite);
             case 1:
                 return ReviewFragment.newInstance(1, "Review", product.getReviews(), product.getId());
             case 2:

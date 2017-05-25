@@ -1,7 +1,10 @@
 package com.example.georgi.shop.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,17 +16,26 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.georgi.shop.Helpers.Command;
+import com.example.georgi.shop.Helpers.CommandResponse;
+import com.example.georgi.shop.Models.CommandEnum;
+import com.example.georgi.shop.Models.OrderModel;
 import com.example.georgi.shop.Models.ShoppingBasket;
+import com.example.georgi.shop.Models.UserModel;
 import com.example.georgi.shop.R;
+import com.example.georgi.shop.Services.Client;
+
+import java.sql.Date;
 
 public class PayMethodActivity extends AppCompatActivity {
 
+    private ShoppingBasket basket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_method);
 
-        ShoppingBasket basket = (ShoppingBasket) getIntent().getSerializableExtra("shoppingBasket");
+        basket = (ShoppingBasket) getIntent().getSerializableExtra("shoppingBasket");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Detalii comanda");
         setSupportActionBar(toolbar);
@@ -89,13 +101,35 @@ public class PayMethodActivity extends AppCompatActivity {
                        Toast.makeText(PayMethodActivity.this, "Completeaza toate campurile pentru a putea plasa comanda", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Intent intent = new Intent(PayMethodActivity.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        finish();
+                        new SendOrder().execute();
                     }
                 }
             }
         });
+    }
+
+    class SendOrder extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+
+            Client client = new Client();
+            client.connectToServer();
+            final SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
+            int userId = sharedPreferences.getInt(getString(R.string.user_id_preference), 0);
+            CommandResponse user = client.receiveDataFromServer(new Command(CommandEnum.GetUserCommand, userId));
+            java.util.Date date = new java.util.Date();
+            OrderModel order = new OrderModel((UserModel) user.getResponse(), basket.getProducts(), basket.getProductsNumber(), new Date(date.getTime()), basket.calcSum());
+            client.receiveDataFromServer(new Command(CommandEnum.AddOrderedCommand, order));
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            Intent intent = new Intent(PayMethodActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 }

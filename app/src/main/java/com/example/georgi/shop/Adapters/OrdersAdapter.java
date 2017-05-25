@@ -40,7 +40,7 @@ public class OrdersAdapter extends ArrayAdapter{
         TextView orderCost = (TextView) view.findViewById(R.id.order_cost);
         ListView productList = (ListView) view.findViewById(R.id.order_product_list);
 
-        orderNumber.setText("Comanda nr. " + order.getId());
+        orderNumber.setText("Comanda nr. " + (position + 1));
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy, hh:mm");
         String dateString = format.format(order.getOrderDate());
         orderDate.setText("Plasata pe : " + dateString);
