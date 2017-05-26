@@ -1,6 +1,7 @@
 package com.example.georgi.shop.Models;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by Georgi on 02-May-17.
@@ -13,7 +14,7 @@ public class UserModel implements Serializable {
     private String name;
     private String email;
     private String address;
-    private String birthDate;
+    private Date birthDate;
     private String pictureUrl;
     private String phone;
     private String cardNumber;
@@ -36,7 +37,7 @@ public class UserModel implements Serializable {
         this.sex = "Masculine";
     }
 
-    public UserModel( int id, String email, String name, String address, String birthDate){
+    public UserModel( int id, String email, String name, String address, Date birthDate){
         this.email = email;
         this.id  = id;
         this.name = name;
@@ -44,7 +45,7 @@ public class UserModel implements Serializable {
         this.birthDate = birthDate;
         this.pictureUrl = "";
     }
-    public UserModel( int id, String email, String name, String address, String birthDate, String url){
+    public UserModel( int id, String email, String name, String address, Date birthDate, String url){
         this.email = email;
         this.id  = id;
         this.name = name;
@@ -85,11 +86,11 @@ public class UserModel implements Serializable {
         this.address = address;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

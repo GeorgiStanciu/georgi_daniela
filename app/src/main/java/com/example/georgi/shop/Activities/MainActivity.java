@@ -23,31 +23,7 @@ public class MainActivity extends BaseActivity {
 
     private GridView gridView;
     private  ArrayList<Product> products;
- /*   @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("SHOP");
-        setSupportActionBar(toolbar);
-
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
-        toolbar.setNavigationIcon(R.mipmap.ic_view_headline);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-        NavigationView navigation = (NavigationView) findViewById(R.id.navigation);
-        navigation.setNavigationItemSelectedListener(new NavigationListener(this));
-
-
-        populateProducts();
-        GridView gridView = (GridView) findViewById(R.id.grid_view);
-
-        ProductAdapter adapter = new ProductAdapter(this, products);
-        gridView.setAdapter(adapter);
-    }*/
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -82,51 +58,6 @@ public class MainActivity extends BaseActivity {
         gridView.setAdapter(adapter);
 
     }
-
-
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        EditText searchEditText = (EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        searchEditText.setTextColor(getResources().getColor(R.color.white));
-        searchEditText.setHintTextColor(getResources().getColor(R.color.white));
-
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return true;
-            }
-        });
-        MenuItem searchItem = menu.findItem(R.id.search);
-        MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                return true;
-            }
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                return true;
-            }
-        });
-
-        MenuItem favoriteItem = menu.findItem(R.id.favorite);
-        Drawable favoriteIcon  = favoriteItem.getIcon();
-        favoriteIcon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
-
-        MenuItem basketItem = menu.findItem(R.id.shopCart);
-        Drawable basketIcon  = basketItem.getIcon();
-        basketIcon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
-
-        return true;
-    }*/
 
 
     private void populateProducts(){

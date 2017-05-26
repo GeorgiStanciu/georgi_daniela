@@ -65,6 +65,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
     }
     private void goProduce(){
         Intent intent = new Intent(activity, FindProductActivity.class);
+        intent.putExtra("category", "Shop");
         activity.startActivity(intent);
     }
     private void goFavorite(){

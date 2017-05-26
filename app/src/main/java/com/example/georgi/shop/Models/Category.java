@@ -12,6 +12,8 @@ public class Category implements Serializable{
     private String name;
     private String parent;
     private int icon;
+    private String image;
+
 
     public Category(int id, String name, String parent, int icon) {
         this.id = id;
@@ -50,5 +52,13 @@ public class Category implements Serializable{
 
     public void setIcon(int icon) {
         this.icon = icon;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

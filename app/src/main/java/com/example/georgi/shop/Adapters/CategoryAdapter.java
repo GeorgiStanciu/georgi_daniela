@@ -40,7 +40,7 @@ public class CategoryAdapter extends ArrayAdapter {
         TextView name = (TextView) view.findViewById(R.id.category_name);
         final Category category = categories.get(position);
 
-        if(category.getId() == -1){
+        if(category.getImage() == null || category.getImage().equals("")){
             icon.setVisibility(View.GONE);
         }
         else{
