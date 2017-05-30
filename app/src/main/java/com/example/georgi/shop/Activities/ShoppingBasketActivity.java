@@ -18,7 +18,7 @@ import com.example.georgi.shop.Adapters.BasketProductAdapter;
 import com.example.georgi.shop.Helpers.Command;
 import com.example.georgi.shop.Helpers.CommandResponse;
 import com.example.georgi.shop.Helpers.GlobalBus;
-import com.example.georgi.shop.Helpers.OnProductDeletedBasket;
+import com.example.georgi.shop.Helpers.OnProductDeleted;
 import com.example.georgi.shop.Helpers.OnTotalSumChange;
 import com.example.georgi.shop.Models.CommandEnum;
 import com.example.georgi.shop.Models.ShoppingBasket;
@@ -120,7 +120,7 @@ public class ShoppingBasketActivity extends BaseActivity {
     }
 
     @Subscribe
-    public void OnProductDeleted(OnProductDeletedBasket event){
+    public void OnProductDeleted(OnProductDeleted event){
         int position = event.getPosition();
         basket.getProducts().remove(position);
         basket.getProductsNumber().remove(position);

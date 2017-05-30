@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/popup_element"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adauga imagine din:"
+        android:textSize="20dp"
+        android:typeface="monospace"
+        android:id="@+id/title_add"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/facebook"/>
+    <ImageView
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:src="@drawable/gallery"
+        android:layout_below="@id/title_add"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:id="@+id/add_from_gallery"/>
+    <ImageView
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:src="@drawable/camera"
+        android:layout_below="@id/title_add"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:id="@+id/add_from_camera"/>
+
+</RelativeLayout>

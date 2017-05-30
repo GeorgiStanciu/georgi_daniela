@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Sterge de la favorite"
+        android:id="@+id/delete_from_favorite"/>
+    <item
+        android:title="Adauga in cos"
+        android:id="@+id/add_to_basket"/>
+</menu>

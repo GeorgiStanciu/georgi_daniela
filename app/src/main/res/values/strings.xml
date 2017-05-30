@@ -43,4 +43,34 @@
         <item>Feminin</item>
     </string-array>
 
+
+    <string-array name="productCategory">
+        <item>Laptop</item>
+        <item>Accesorii Laptop</item>
+        <item>Telefoane mobile</item>
+        <item>Accesotii Telefoane</item>
+        <item>Tablete</item>
+        <item>Accesorii Tablete</item>
+
+        <item>Placi video</item>
+        <item>Placi de baza</item>
+        <item>Placi de Sunet</item>
+        <item>Memorii</item>
+        <item>Procesoare</item>
+        <item>Mouse</item>
+        <item>Tastature</item>
+        <item>Hard Disk-uri</item>
+        <item>SSD-uri</item>
+        <item>Casti PC</item>
+        <item>Camera Web</item>
+
+        <item>Audio</item>
+        <item>Televizoare</item>
+        <item>Accesorii TV</item>
+        <item>Aparate foto</item>
+        <item>Accesorii foto</item>
+        <item>Console</item>
+        <item>Accesorii Gaming</item>
+        <item>Jocuri</item>
+    </string-array>
 </resources>

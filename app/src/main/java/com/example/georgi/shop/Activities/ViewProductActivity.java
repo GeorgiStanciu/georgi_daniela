@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.georgi.shop.Adapters.ProductPagerAdapter;
@@ -28,11 +29,13 @@ public class ViewProductActivity extends BaseActivity {
     private ProductPagerAdapter adapter;
     private ViewPager viewPager;
     private int userId;
+    private ProgressBar progressBar;
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_view_product,null);
-
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = getIntent();
         final int productId = intent.getIntExtra("productId",0);
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference), Context.MODE_PRIVATE);
@@ -89,6 +92,7 @@ public class ViewProductActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(Object o) {
+            progressBar.setVisibility(View.GONE);
             adapter = new ProductPagerAdapter(getSupportFragmentManager(), product, isFavorite);
             viewPager.setAdapter(adapter);
 
@@ -111,6 +115,11 @@ public class ViewProductActivity extends BaseActivity {
             CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.AddBasketCommand.AddProductToBasketCommand, productBasket));
             client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            Toast.makeText(getBaseContext(), "Product added to your shopping basket", Toast.LENGTH_SHORT).show();
         }
     }
     /* @Override

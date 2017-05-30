@@ -47,7 +47,8 @@ public class DeserializateResponse {
         Gson gson = new GsonBuilder().registerTypeAdapter(java.sql.Date.class, adapter).setDateFormat("MMM dd, yyyy").create();
         CommandResponse commandResponse = null;
 
-        if(command == CommandEnum.ViewProductsCommand || command == CommandEnum.GetProductByCategoryCommand) {
+        if(command == CommandEnum.ViewProductsCommand || command == CommandEnum.GetProductByCategoryCommand
+                || command == CommandEnum.GetProductsByString) {
             Type type = new TypeToken<ArrayList<Product>>() {}.getType();
             JsonArray jsonArray = (JsonArray)jsonObject.get("object");
             Object object = gson.fromJson(jsonArray, type);

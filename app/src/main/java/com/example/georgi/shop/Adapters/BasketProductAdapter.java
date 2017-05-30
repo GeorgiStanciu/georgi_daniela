@@ -22,7 +22,7 @@ import com.example.georgi.shop.Activities.ViewProductActivity;
 import com.example.georgi.shop.Helpers.Command;
 import com.example.georgi.shop.Helpers.CommandResponse;
 import com.example.georgi.shop.Helpers.GlobalBus;
-import com.example.georgi.shop.Helpers.OnProductDeletedBasket;
+import com.example.georgi.shop.Helpers.OnProductDeleted;
 import com.example.georgi.shop.Helpers.OnTotalSumChange;
 import com.example.georgi.shop.Models.CommandEnum;
 import com.example.georgi.shop.Models.FavoriteProducts;
@@ -79,7 +79,7 @@ public class BasketProductAdapter extends ArrayAdapter {
                             public boolean onMenuItemClick(MenuItem menuItem) {
                                 switch (menuItem.getItemId()){
                                     case R.id.delete_from_basket:
-                                        GlobalBus.getBus().post(new OnProductDeletedBasket(position));
+                                        GlobalBus.getBus().post(new OnProductDeleted(position));
                                         products.remove(product);
                                         notifyDataSetChanged();
                                         new ChangeProductBasket(product.getId(), "remove", 0).execute();

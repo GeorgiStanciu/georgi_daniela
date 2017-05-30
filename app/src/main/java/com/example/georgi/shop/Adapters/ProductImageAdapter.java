@@ -2,14 +2,14 @@ package com.example.georgi.shop.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.georgi.shop.Models.Product;
+import com.example.georgi.shop.Activities.ViewProductActivity;
 import com.example.georgi.shop.R;
 import com.squareup.picasso.Picasso;
 
@@ -41,19 +41,43 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
     @Override
     public void onBindViewHolder(PictureHolder holder, int position) {
         final String image = images.get(position);
-        Picasso.with(context)
-                .load(image)
-                .into(holder.image);
-
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageView mainImage = (ImageView) ((Activity) context).findViewById(R.id.product_main_image);
+        {
+            if (image.contains("http"))
                 Picasso.with(context)
                         .load(image)
-                        .into(mainImage);
+                        .into(holder.image);
+            if(context instanceof ViewProductActivity) {
+
+                holder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImageView mainImage = (ImageView) ((Activity) context).findViewById(R.id.product_main_image);
+                        Picasso.with(context)
+                                .load(image)
+                                .into(mainImage);
+                    }
+                });
+        }
+
+        else {
+                Picasso.with(context)
+                        .load(Uri.parse(image))
+                        .resize(80, 80)
+                        .centerCrop()
+                        .into(holder.image);
+                holder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImageView mainImage = (ImageView) ((Activity) context).findViewById(R.id.product_main_image);
+                        Picasso.with(context)
+                                .load(Uri.parse(image))
+                                .into(mainImage);
+                    }
+                });
             }
-        });
+
+        }
+
     }
 
     @Override

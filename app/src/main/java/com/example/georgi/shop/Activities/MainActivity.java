@@ -1,8 +1,12 @@
 package com.example.georgi.shop.Activities;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.Helpers.Command;
@@ -23,43 +27,59 @@ public class MainActivity extends BaseActivity {
 
     private GridView gridView;
     private  ArrayList<Product> products;
+    private ProgressBar progressBar;
 
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_main,null);
         gridView = (GridView) view.findViewById(R.id.grid_view);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        gridView.setVisibility(View.GONE);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Client client =  new Client();
-                client.connectToServer();
-                CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.ViewProductsCommand));
-                products = (ArrayList<Product>) response.getResponse();
-                client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        setProducts();
-                    }
-                });
+        Intent intent = getIntent();
+        products = (ArrayList<Product>) intent.getSerializableExtra("products");
+        if(products == null) {
+            new GetProducts().execute();
+        }
+        else{
+            if(products.size() ==0){
+                progressBar.setVisibility(View.GONE);
+                RelativeLayout noFind = (RelativeLayout) view.findViewById(R.id.no_product_find);
+                noFind.setVisibility(View.VISIBLE);
             }
-        }).start();
-
-
+            else
+                setProducts();
+        }
         contentLayout.addView(view);
 
     }
 
     private void setProducts(){
-        ProductAdapter adapter = new ProductAdapter(this, products);
+        progressBar.setVisibility(View.GONE);
+        gridView.setVisibility(View.VISIBLE);
+        ProductAdapter adapter = new ProductAdapter(this, products, R.menu.product_menu);
         gridView.setAdapter(adapter);
 
     }
 
+    class GetProducts extends AsyncTask{
 
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            Client client =  new Client();
+            client.connectToServer();
+            CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.ViewProductsCommand));
+            products = (ArrayList<Product>) response.getResponse();
+            client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            setProducts();
+        }
+    }
     private void populateProducts(){
         UserModel user = new UserModel("email", "1", "Georgi");
         ArrayList<ReviewModel> reviews = new ArrayList<>();

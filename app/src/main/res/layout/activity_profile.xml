@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:entries="@array/profileSex"
-                android:hint="Adresa"
+                android:hint="Sex"
                 android:paddingBottom="8dp"
                 android:paddingTop="8dp"
                 android:textColor="@color/matteBlack" />

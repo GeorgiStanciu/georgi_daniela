@@ -16,11 +16,14 @@ import android.widget.TextView;
 import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.Helpers.Command;
 import com.example.georgi.shop.Helpers.CommandResponse;
+import com.example.georgi.shop.Helpers.GlobalBus;
+import com.example.georgi.shop.Helpers.OnProductDeleted;
 import com.example.georgi.shop.Models.CommandEnum;
 import com.example.georgi.shop.Models.FavoriteProducts;
 import com.example.georgi.shop.Models.Product;
 import com.example.georgi.shop.R;
 import com.example.georgi.shop.Services.Client;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
@@ -61,6 +64,31 @@ public class FavoriteProductsActivity extends BaseActivity {
         contentLayout.addView(view);
     }
 
+    private void refresh(){
+        Intent intent = new Intent(this, FavoriteProductsActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
+
+    @Subscribe
+    public void OnProductDeleted(OnProductDeleted event){
+        if(event.getPosition() == 0)
+            refresh();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GlobalBus.getBus().register(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        GlobalBus.getBus().unregister(this);
+    }
+
 
     private void setFavorites(){
         progressBar.setVisibility(View.GONE);
@@ -91,7 +119,7 @@ public class FavoriteProductsActivity extends BaseActivity {
             for(FavoriteProducts favorite: favorites){
                 products.add(favorite.getProduct());
             }
-            ProductAdapter adapter = new ProductAdapter(this, products);
+            ProductAdapter adapter = new ProductAdapter(this, products, R.menu.favorite_menu);
             gridView.setAdapter(adapter);
         }
 

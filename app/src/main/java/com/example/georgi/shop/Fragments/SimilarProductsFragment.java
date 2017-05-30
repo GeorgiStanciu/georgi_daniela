@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 
 import com.example.georgi.shop.Adapters.ProductAdapter;
 import com.example.georgi.shop.Helpers.Command;
@@ -32,6 +33,7 @@ public class SimilarProductsFragment extends Fragment {
     private ArrayList<Product> products;
     private ProductAdapter adapter;
     private GridView gridView;
+    private ProgressBar progressBar;
 
     public static SimilarProductsFragment newInstance(int page, String title, String category){
         SimilarProductsFragment similarProductsFragment = new SimilarProductsFragment();
@@ -57,9 +59,12 @@ public class SimilarProductsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.similar_products_fragment, container, false);
         gridView = (GridView) view.findViewById(R.id.grid_view_similar_products);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.VISIBLE);
+        gridView.setVisibility(View.GONE);
         products = new ArrayList<>();
         new LoadProducts().execute();
-        adapter = new ProductAdapter(getContext(), products);
+        adapter = new ProductAdapter(getContext(), products, R.menu.product_menu);
         gridView.setAdapter(adapter);
         return view;
     }
@@ -80,6 +85,8 @@ public class SimilarProductsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object o) {
+            progressBar.setVisibility(View.GONE);
+            gridView.setVisibility(View.VISIBLE);
             adapter.setProducts(products);
 
         }

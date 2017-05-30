@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="start|bottom"
     android:id="@+id/navigation"
-    app:menu="@menu/drawer_menu"
     app:itemTextColor="@color/cherry"
     app:itemIconTint="@color/smoke"
     android:fitsSystemWindows="true"

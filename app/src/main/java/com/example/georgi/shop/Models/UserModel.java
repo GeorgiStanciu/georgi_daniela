@@ -19,6 +19,7 @@ public class UserModel implements Serializable {
     private String phone;
     private String cardNumber;
     private String sex;
+    private String function;
 
     public UserModel(){
         this.name = "";
@@ -133,5 +134,13 @@ public class UserModel implements Serializable {
 
     public void setFirebaseId(String firebaseId) {
         this.firebaseId = firebaseId;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
     }
 }

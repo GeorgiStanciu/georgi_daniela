@@ -98,6 +98,10 @@ public class Product implements Serializable{
         this.rating = rating;
     }
 
+    public Product() {
+
+    }
+
 
     public int getId() {
         return id;
@@ -204,6 +208,11 @@ public class Product implements Serializable{
 
     }
 
+    public void addImage(String image){
+        if(images == null)
+            images = new ArrayList<>();
+        images.add(image);
+    }
 }
 
 

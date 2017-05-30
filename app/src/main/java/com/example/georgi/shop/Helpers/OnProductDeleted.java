@@ -4,11 +4,11 @@ package com.example.georgi.shop.Helpers;
  * Created by Georgi on 09-May-17.
  */
 
-public class OnProductDeletedBasket {
+public class OnProductDeleted {
 
     private int position;
 
-    public OnProductDeletedBasket(int position){
+    public OnProductDeleted(int position){
         this.position = position;
     }
 

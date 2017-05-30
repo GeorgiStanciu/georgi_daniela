@@ -218,6 +218,18 @@ public class ProductFragment extends Fragment {
             client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
             return null;
         }
+
+
+        @Override
+        protected void onPostExecute(Object o) {
+            if(operation.equals("add"))
+               Toast.makeText(getContext(), "Product added to your favorite list", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getContext(), "Product removed from your favorite list", Toast.LENGTH_SHORT).show();
+
+        }
     }
+
+
 
 }

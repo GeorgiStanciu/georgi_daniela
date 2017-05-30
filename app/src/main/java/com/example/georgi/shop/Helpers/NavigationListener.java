@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 
+import com.example.georgi.shop.Activities.AddProductActivity;
 import com.example.georgi.shop.Activities.DeliverInfoActivity;
 import com.example.georgi.shop.Activities.FavoriteProductsActivity;
 import com.example.georgi.shop.Activities.FindProductActivity;
@@ -53,6 +54,16 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             case "Informatii SHOP":
                 goInformatiiShop();
                 return true;
+            case "Adauga produs":
+                goAddProduct();
+                return true;
+            case "Modifica produs":
+                goUpdateProduct();
+                return true;
+            case "Vizualizare comenzi":
+                goViewOrders();
+                return true;
+
         }
         return false;
     }
@@ -64,34 +75,65 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
     }
     private void goProduce(){
-        Intent intent = new Intent(activity, FindProductActivity.class);
-        intent.putExtra("category", "Shop");
-        activity.startActivity(intent);
+        if(!(activity instanceof FindProductActivity)) {
+            Intent intent = new Intent(activity, FindProductActivity.class);
+            intent.putExtra("category", "Shop");
+            activity.startActivity(intent);
+        }
     }
     private void goFavorite(){
-        Intent intent = new Intent(activity, FavoriteProductsActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof FavoriteProductsActivity)) {
+            Intent intent = new Intent(activity, FavoriteProductsActivity.class);
+            activity.startActivity(intent);
+        }
     }
     private void goCos(){
-        Intent intent = new Intent(activity, ShoppingBasketActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof ShoppingBasketActivity)) {
+            Intent intent = new Intent(activity, ShoppingBasketActivity.class);
+            activity.startActivity(intent);
+        }
     }
     private void goCont(){
-        Intent intent = new Intent(activity, ProfileActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof ProfileActivity)) {
+            Intent intent = new Intent(activity, ProfileActivity.class);
+            activity.startActivity(intent);
+        }
     }
     private void goNotificari(){
-        Intent intent = new Intent(activity, NotificationActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof NotificationActivity)) {
+            Intent intent = new Intent(activity, NotificationActivity.class);
+            activity.startActivity(intent);
+        }
     }
     private void goInformatiiLivrare(){
-        Intent intent = new Intent(activity, DeliverInfoActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof DeliverInfoActivity)) {
+            Intent intent = new Intent(activity, DeliverInfoActivity.class);
+            activity.startActivity(intent);
+        }
     }
     private void goInformatiiShop(){
-        Intent intent = new Intent(activity, ShopInfoActivity.class);
-        activity.startActivity(intent);
+        if(!(activity instanceof ShopInfoActivity)) {
+            Intent intent = new Intent(activity, ShopInfoActivity.class);
+            activity.startActivity(intent);
+        }
     }
 
-
+    private void goAddProduct(){
+        if(!(activity instanceof AddProductActivity)) {
+            Intent intent = new Intent(activity, AddProductActivity.class);
+            activity.startActivity(intent);
+        }
+    }
+    private void goUpdateProduct(){
+        if(!(activity instanceof DeliverInfoActivity)) {
+            Intent intent = new Intent(activity, DeliverInfoActivity.class);
+            activity.startActivity(intent);
+        }
+    }
+    private void goViewOrders(){
+        if(!(activity instanceof ShopInfoActivity)) {
+            Intent intent = new Intent(activity, ShopInfoActivity.class);
+            activity.startActivity(intent);
+        }
+    }
 }
