@@ -64,7 +64,7 @@ public class SimilarProductsFragment extends Fragment {
         gridView.setVisibility(View.GONE);
         products = new ArrayList<>();
         new LoadProducts().execute();
-        adapter = new ProductAdapter(getContext(), products, R.menu.product_menu);
+        adapter = new ProductAdapter(getContext(), products, R.menu.product_menu,false);
         gridView.setAdapter(adapter);
         return view;
     }

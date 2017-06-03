@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/smoke"
+    tools:context="com.example.georgi.shop.Activities.ViewAllOrders">
+
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center"
+        android:paddingTop="250dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/empty_orders_layout"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/shop"
+            android:tint="@color/berry"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:id="@+id/shopping_basket_icon"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista comenzilor este goala"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_below="@id/shopping_basket_icon"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/matteBlack"
+            android:textStyle="bold"
+            android:id="@+id/empty_orders_title"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_button"
+            android:text="Comanda produse"
+            android:textColor="@color/chiffon"
+            android:textSize="@dimen/activity_horizontal_margin"
+            android:id="@+id/empty_orders_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ordered_products_list"
+        android:verticalSpacing="8dp"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        ></ListView>
+
+</LinearLayout>

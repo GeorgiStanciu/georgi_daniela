@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.georgi.shop.Activities.ViewAllOrders;
 import com.example.georgi.shop.Models.OrderModel;
 import com.example.georgi.shop.R;
 
@@ -39,12 +40,17 @@ public class OrdersAdapter extends ArrayAdapter{
         TextView orderDate = (TextView )view.findViewById(R.id.order_date);
         TextView orderCost = (TextView) view.findViewById(R.id.order_cost);
         ListView productList = (ListView) view.findViewById(R.id.order_product_list);
+        TextView userName = (TextView) view.findViewById(R.id.order_client);
 
+        userName.setText("Comandat de:" + order.getUser().getName());
+        if(context instanceof ViewAllOrders)
+            userName.setVisibility(View.VISIBLE);
         orderNumber.setText("Comanda nr. " + (position + 1));
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy, hh:mm");
         String dateString = format.format(order.getOrderDate());
         orderDate.setText("Plasata pe : " + dateString);
         orderCost.setText("Total: " + String.format("%.2f",order.getCost()));
+
 
         ViewGroup.LayoutParams layoutParams = productList.getLayoutParams();
         layoutParams.height = (int) context.getResources().getDimension(R.dimen.rowheight) * order.getProducts().size();

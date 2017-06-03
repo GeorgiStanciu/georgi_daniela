@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <application
         android:name=".MyApplication"
@@ -47,7 +47,9 @@
             android:theme="@style/NoActionBar" />
         <activity android:name=".Activities.PayMethodActivity" />
         <activity android:name=".Activities.OrdersActivity" />
-        <activity android:name=".Activities.AddProductActivity"></activity>
+        <activity android:name=".Activities.AddProductActivity" />
+        <activity android:name=".Activities.ViewAllOrders" />
+        <activity android:name=".Activities.UpdateProductActivity"></activity>
     </application>
 
 </manifest>

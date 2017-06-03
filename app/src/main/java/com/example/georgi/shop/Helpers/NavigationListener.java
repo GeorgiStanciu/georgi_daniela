@@ -15,6 +15,8 @@ import com.example.georgi.shop.Activities.NotificationActivity;
 import com.example.georgi.shop.Activities.ProfileActivity;
 import com.example.georgi.shop.Activities.ShopInfoActivity;
 import com.example.georgi.shop.Activities.ShoppingBasketActivity;
+import com.example.georgi.shop.Activities.UpdateProductActivity;
+import com.example.georgi.shop.Activities.ViewAllOrders;
 
 /**
  * Created by Georgi on 04-May-17.
@@ -44,9 +46,6 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
                 return true;
             case "Contul meu":
                 goCont();
-                return true;
-            case "Notificari":
-                goNotificari();
                 return true;
             case "Informatii livrare":
                 goInformatiiLivrare();
@@ -99,12 +98,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             activity.startActivity(intent);
         }
     }
-    private void goNotificari(){
-        if(!(activity instanceof NotificationActivity)) {
-            Intent intent = new Intent(activity, NotificationActivity.class);
-            activity.startActivity(intent);
-        }
-    }
+
     private void goInformatiiLivrare(){
         if(!(activity instanceof DeliverInfoActivity)) {
             Intent intent = new Intent(activity, DeliverInfoActivity.class);
@@ -125,14 +119,15 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
     }
     private void goUpdateProduct(){
-        if(!(activity instanceof DeliverInfoActivity)) {
-            Intent intent = new Intent(activity, DeliverInfoActivity.class);
+        if(!(activity instanceof UpdateProductActivity)) {
+            Intent intent = new Intent(activity, MainActivity.class);
+            intent.putExtra("update", true);
             activity.startActivity(intent);
         }
     }
     private void goViewOrders(){
-        if(!(activity instanceof ShopInfoActivity)) {
-            Intent intent = new Intent(activity, ShopInfoActivity.class);
+        if(!(activity instanceof ViewAllOrders)) {
+            Intent intent = new Intent(activity, ViewAllOrders.class);
             activity.startActivity(intent);
         }
     }

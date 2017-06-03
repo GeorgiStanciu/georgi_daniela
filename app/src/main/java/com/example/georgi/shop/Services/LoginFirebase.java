@@ -132,11 +132,12 @@ public class LoginFirebase {
 
 
     private void setUserPreference(int userId){
-        GlobalBus.getBus().post(new OnUserLogin(true));
         SharedPreferences sharedPreferences = activity.getSharedPreferences(activity.getString(R.string.preference), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(activity.getString(R.string.user_id_preference), userId);
         editor.commit();
+        GlobalBus.getBus().post(new OnUserLogin(true));
+
     }
 
     public void logout(){

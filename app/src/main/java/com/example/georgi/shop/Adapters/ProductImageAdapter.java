@@ -41,24 +41,24 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
     @Override
     public void onBindViewHolder(PictureHolder holder, int position) {
         final String image = images.get(position);
-        {
-            if (image.contains("http"))
+
+            if (image.contains("http")) {
                 Picasso.with(context)
                         .load(image)
                         .into(holder.image);
-            if(context instanceof ViewProductActivity) {
+                if (context instanceof ViewProductActivity) {
 
-                holder.image.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ImageView mainImage = (ImageView) ((Activity) context).findViewById(R.id.product_main_image);
-                        Picasso.with(context)
-                                .load(image)
-                                .into(mainImage);
-                    }
-                });
-        }
-
+                    holder.image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ImageView mainImage = (ImageView) ((Activity) context).findViewById(R.id.product_main_image);
+                            Picasso.with(context)
+                                    .load(image)
+                                    .into(mainImage);
+                        }
+                    });
+                }
+            }
         else {
                 Picasso.with(context)
                         .load(Uri.parse(image))
@@ -76,7 +76,6 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
                 });
             }
 
-        }
 
     }
 

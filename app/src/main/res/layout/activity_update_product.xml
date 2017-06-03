@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.georgi.shop.Activities.UpdateProductActivity"
+    android:background="@color/chiffon"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding = "15dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_image_list"
+            android:scrollbars="none"
+            android:fitsSystemWindows="true"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:layout_below="@id/add_image_text"
+            android:layout_marginTop="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_image_list"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numele produsului"
+                android:textColor="@color/matteBlack"
+                android:enabled="false"
+                />
+
+            <EditText
+                android:id="@+id/product_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Descrierea produsului"
+                android:textColor="@color/matteBlack" />
+
+            <EditText
+                android:id="@+id/product_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:entries="@array/productCategory"
+                android:hint="Categorie"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/matteBlack"
+                android:enabled="false"
+                />
+
+            <EditText
+                android:id="@+id/product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Pret"
+                android:inputType="number"
+                android:textColor="@color/matteBlack" />
+
+            <EditText
+                android:id="@+id/product_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Discount"
+                android:textColor="@color/matteBlack"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/product_seller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Vanzator"
+                android:textColor="@color/matteBlack"
+
+                />
+
+            <EditText
+                android:id="@+id/product_guarantee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Garantie"
+                android:inputType="number"
+                android:textColor="@color/matteBlack" />
+
+            <EditText
+                android:id="@+id/product_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Cantitate"
+                android:textColor="@color/matteBlack"
+                android:inputType="number"
+                />
+            <Button
+                android:id="@+id/add_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_button"
+                android:textColor="@color/chiffon"
+                android:text="UPDATE PRODUCT"
+                android:textSize="@dimen/activity_horizontal_margin" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

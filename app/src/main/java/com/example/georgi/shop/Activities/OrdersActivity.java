@@ -80,6 +80,8 @@ public class OrdersActivity extends BaseActivity {
             int userId = sharedPreferences.getInt(getString(R.string.user_id_preference), 0);
             CommandResponse response = client.receiveDataFromServer(new Command(CommandEnum.GetOrderesByUserCommand, userId));
             orders = (ArrayList<OrderModel>) response.getResponse();
+            client.receiveDataFromServer(new Command(CommandEnum.EndConnectionCommand));
+
             return null;
         }
 

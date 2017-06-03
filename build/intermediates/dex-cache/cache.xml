@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Georgi\Documents\Shop\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Georgi\Documents\shop\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6ebae1688363f1b1cb481040f79d9d052a47b28b">
-        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_42ef66ce3ac8bc77a0d4b0a117d7af274d6f1a92\classes.dex" />
+        sha1="cc55f3a50704e0a5fb4451084e7bb2a0a27cd412">
+        <dex dex="C:\Users\Georgi\Documents\shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b349fa9bda7bad004cff48906405ccba2499077c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Georgi\Documents\Shop\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Georgi\Documents\shop\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="C:\Users\Georgi\Documents\Shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_18424414944a69ac642bb460415d2858f8520c17\classes.dex" />
+        <dex dex="C:\Users\Georgi\Documents\shop\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ad249979843bf47bec9ac9851fd12a26bfdae487\classes.dex" />
     </item>
 
 </items>

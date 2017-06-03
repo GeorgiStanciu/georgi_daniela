@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.georgi.shop.Activities.UpdateProductActivity;
 import com.example.georgi.shop.Activities.ViewProductActivity;
 import com.example.georgi.shop.Helpers.Command;
 import com.example.georgi.shop.Helpers.CommandResponse;
@@ -42,11 +43,13 @@ public class ProductAdapter extends BaseAdapter {
     private ArrayList<Product> products;
     private Context context;
     private int productMenu;
+    private boolean update;
 
-    public ProductAdapter(Context context, ArrayList<Product> products, int productMenu){
+    public ProductAdapter(Context context, ArrayList<Product> products, int productMenu, boolean update){
         this.context = context;
         this.products = products;
         this.productMenu = productMenu;
+        this.update = update;
     }
 
     public void setProducts(ArrayList<Product> products){
@@ -142,9 +145,16 @@ public class ProductAdapter extends BaseAdapter {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ViewProductActivity.class);
-                intent.putExtra("productId",product.getId());
-                ((Activity) context).startActivity(intent);
+                if(update){
+                    Intent intent = new Intent(context, UpdateProductActivity.class);
+                    intent.putExtra("product", product);
+                    ((Activity) context).startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(context, ViewProductActivity.class);
+                    intent.putExtra("productId", product.getId());
+                    ((Activity) context).startActivity(intent);
+                }
             }
         });
 

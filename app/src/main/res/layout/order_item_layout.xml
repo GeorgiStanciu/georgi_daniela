@@ -16,6 +16,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Comandat de :"
+        android:paddingTop="10dp"
+        android:id="@+id/order_client"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Plasata pe 29 noiembrie 2016, 21:23"
         android:paddingTop="10dp"
         android:id="@+id/order_date"/>

@@ -41,7 +41,7 @@ public class FindProductActivity extends BaseActivity {
 
     private void setProducts(){
 
-        ProductAdapter adapter= new ProductAdapter(this, products, R.menu.product_menu);
+        ProductAdapter adapter= new ProductAdapter(this, products, R.menu.product_menu,false);
         category.setAdapter(adapter);
     }
 

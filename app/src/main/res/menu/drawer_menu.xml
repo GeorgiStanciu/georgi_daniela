@@ -40,12 +40,6 @@
         >
 
         <item
-            android:title="Notificari"
-            android:theme="@style/AppTheme"
-            android:icon="@mipmap/ic_bell"
-            />
-
-        <item
             android:title="Informatii livrare"
             android:theme="@style/AppTheme"
             android:icon="@mipmap/ic_information"

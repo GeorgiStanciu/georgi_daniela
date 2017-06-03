@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     private GridView gridView;
     private  ArrayList<Product> products;
     private ProgressBar progressBar;
-
+    private boolean update;
     @Override
     protected void addLayout() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
 
         Intent intent = getIntent();
         products = (ArrayList<Product>) intent.getSerializableExtra("products");
+        update = intent.getBooleanExtra("update",false);
         if(products == null) {
             new GetProducts().execute();
         }
@@ -58,7 +59,7 @@ public class MainActivity extends BaseActivity {
     private void setProducts(){
         progressBar.setVisibility(View.GONE);
         gridView.setVisibility(View.VISIBLE);
-        ProductAdapter adapter = new ProductAdapter(this, products, R.menu.product_menu);
+        ProductAdapter adapter = new ProductAdapter(this, products, R.menu.product_menu, update);
         gridView.setAdapter(adapter);
 
     }

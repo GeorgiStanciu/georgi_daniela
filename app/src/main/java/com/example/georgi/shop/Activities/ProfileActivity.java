@@ -106,7 +106,8 @@ public class ProfileActivity extends BaseActivity {
         address.setText(user.getAddress());
         cardNumber.setText(user.getCardNumber());
         final DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        birth.setText(format.format(user.getBirthDate()));
+        if(user.getBirthDate() != null)
+           birth.setText(format.format(user.getBirthDate()));
         birth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

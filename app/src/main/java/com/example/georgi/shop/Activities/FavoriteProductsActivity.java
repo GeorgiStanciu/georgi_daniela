@@ -119,7 +119,7 @@ public class FavoriteProductsActivity extends BaseActivity {
             for(FavoriteProducts favorite: favorites){
                 products.add(favorite.getProduct());
             }
-            ProductAdapter adapter = new ProductAdapter(this, products, R.menu.favorite_menu);
+            ProductAdapter adapter = new ProductAdapter(this, products, R.menu.favorite_menu, false);
             gridView.setAdapter(adapter);
         }
 

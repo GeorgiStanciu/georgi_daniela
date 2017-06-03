@@ -27,7 +27,8 @@ public class Client {
 
 
     public Client(){
-        host = "10.5.255.168";
+        host = "192.168.43.49";
+     //   host = "192.168.100.3";
         port = 9982;
     }
 
